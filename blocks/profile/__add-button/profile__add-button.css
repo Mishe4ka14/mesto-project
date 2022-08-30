@@ -1,0 +1,7 @@
+.profile__add-button {
+  order: 999;
+  margin-left: auto;
+  border: 0;
+  border-radius: 0;
+  background-color: black;
+}

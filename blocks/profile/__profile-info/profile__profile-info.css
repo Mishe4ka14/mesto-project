@@ -1,0 +1,10 @@
+.profile__profile-info {
+  display: flex;
+  flex-direction: column;
+  max-width: 336px;
+  min-height: 73px;
+  justify-content:flex-start;
+  /* align-items: center; */
+  padding-left: 26px;
+}
+
