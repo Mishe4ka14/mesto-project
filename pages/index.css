@@ -7,3 +7,15 @@
 @import url(../blocks/profile/__subtitle/profile__subtitle.css);
 @import url(../blocks/profile/__profile-info/profile__profile-info.css);
 @import url(../blocks/profile/__add-button/profile__add-button.css);
+@import url(../blocks/elements/elements.css);
+@import url(../blocks/elements/__element/elements__element.css);
+@import url(../blocks/elements/__description/elements__description.css);
+@import url(../blocks/elements/__photo/elements__photo.css);
+@import url(../blocks/elements/__photo-title/elements__photo-title.css);
+@import url(../blocks/elements/__element/_cherkesia/elements__element_cherkesia.css);
+@import url(../blocks/elements/__element/_dombai/elements__element_dombai.css);
+@import url(../blocks/elements/__element/_gora-albrus/elements__element_gora-albrus.css);
+@import url(../blocks/elements/__element/_gora-ushba/elements__element_gora-ushba.css);
+@import url(../blocks/elements/__element/_karachaevsk/elements__element_karachaevsk.css);
+@import url(../blocks/elements/__element/_svanetia/elements__element_svanetia.css);
+@import url(../blocks/elements/__like/elements__like.css);

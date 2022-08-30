@@ -15,15 +15,62 @@
     <header class="header">
       <img src="./images/logo.svg" alt="Логотип">
     </header>
+
     <section class="profile">
       <img class="profile__avatar" src="./images/Avayar2.jpg" alt="">
       <div class="profile__profile-info">
-        <p class="profile__title">Жак-Ив Кусто <img class="profile__edit-button" src="./images/Edit Button.svg" alt=""></p>
+        <p class="profile__title">Жак-Ив Кусто <button class="profile__edit-button"><img src="./images/Edit Button.svg" alt=""></button></p>
         <p class="profile__subtitle">Исследователь океана</p>
       </div>
       <button class="profile__add-button"><img src="./images/Add Button.svg" alt=""></button>
     </section>
-    <section class="elements"></section>
+
+    <section class="elements">
+
+      <!-- каждому элементу присваиваем модификатор для определения места в грид-области -->
+      <div class="elements__element elements__element_karachaevsk">
+        <img class="elements__photo" src="./images/karachaevsk.jpg" alt="">
+        <div class="elements__description">
+          <p class="elements__photo-title">Карачаевск</p>
+          <button type="button" class="elements__like"><img src="./images/serdechko.svg" alt=""></button>
+        </div>
+      </div>
+      <div class="elements__element elements__element_gora-albrus">
+        <img class="elements__photo" src="./images/gora_Albrus.jpg" alt="">
+        <div class="elements__description">
+          <p class="elements__photo-title">Гора Эльбрус</p>
+          <button class="elements__like"><img src="./images/serdechko.svg" alt=""></button>
+        </div>
+      </div>
+      <div class="elements__element elements__element_dombai">
+        <img class="elements__photo" src="./images/dombay.jpg" alt="">
+        <div class="elements__description">
+          <p class="elements__photo-title">Домбай</p>
+          <button class="elements__like"><img src="./images/serdechko.svg" alt=""></button>
+        </div>
+      </div>
+      <div class="elements__element elements__element_gora-ushba">
+        <img class="elements__photo" src="./images/gora-ushba.jpg" alt="">
+        <div class="elements__description">
+          <p class="elements__photo-title">Гора Ушба</p>
+          <button class="elements__like"><img src="./images/serdechko.svg" alt=""></button>
+        </div>
+      </div>
+      <div class="elements__element elements__element_svanetia">
+        <img class="elements__photo" src="./images/svanetia.jpg" alt="">
+        <div class="elements__description">
+          <p class="elements__photo-title">Сванетия</p>
+          <button class="elements__like"><img src="./images/serdechko.svg" alt=""></button>
+        </div>
+      </div>
+      <div class="elements__element elements__element_cherkesia">
+        <img class="elements__photo" src="./images/karachaevsk.jpg" alt="">
+        <div class="elements__description">
+          <p class="elements__photo-title">Карачаево-Черкессия</p>
+          <button class="elements__like"><img src="./images/serdechko.svg" alt=""></button>
+        </div>
+      </div>
+    </section>
   <!-- </div> -->
 </body>
 </html>
