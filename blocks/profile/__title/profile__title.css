@@ -5,3 +5,11 @@
   color: white;
   margin: 0 auto 16px;
 }
+
+@media screen and (max-width: 767px) {
+  .profile__title {
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 33px;
+  }
+}

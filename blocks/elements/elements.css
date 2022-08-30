@@ -25,3 +25,18 @@
   ;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .elements {
+    grid-template-columns: 282px;
+    grid-template-rows: repeat(6, minmax(min-content, max-content));
+    grid-template-areas:
+    "elements__element_karachaevsk"
+     "elements__element_gora-albrus"
+    "elements__element_gora-ushba"
+     "elements__element_dombai"
+    "elements__element_svanetia"
+     "elements__element_cherkesia"
+  ;
+  }
+}
