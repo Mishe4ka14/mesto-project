@@ -15,3 +15,10 @@
   background-color: white;
   border-radius: 10px;
 }
+
+@media screen and (max-width: 426px) {
+  .popup__container {
+    max-width: 282px;
+    min-height: 322px;
+  }
+}

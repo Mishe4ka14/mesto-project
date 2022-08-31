@@ -9,8 +9,9 @@
 }
 
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 426px) {
   .profile__profile-info {
+    margin-top: 22px;
    padding: 0;
   }
 }
