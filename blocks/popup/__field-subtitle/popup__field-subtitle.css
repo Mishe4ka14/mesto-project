@@ -1,0 +1,7 @@
+.popup__field-subtitle {
+  border: 0;
+  width: 90%;
+  border-bottom: 1px rgba(0, 0, 0, 20%) solid;
+  /* padding: 0 36px; */
+
+}
