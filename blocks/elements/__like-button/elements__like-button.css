@@ -1,5 +1,6 @@
 .elements__like-button {
-  background-color: white;
+  background-color: #00000000;
+  /* opacity: 0%; */
   border: none;
   order: 998;
   margin-left: auto;
@@ -10,5 +11,5 @@
 }
 
 .elements__like-button:active {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 100%);;
 }

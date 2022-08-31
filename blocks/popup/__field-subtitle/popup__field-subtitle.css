@@ -1,7 +1,11 @@
 .popup__field-subtitle {
   border: 0;
-  width: 90%;
+  width: 80%;
   border-bottom: 1px rgba(0, 0, 0, 20%) solid;
-  /* padding: 0 36px; */
-
+  margin: 0 auto;
+  font-family: inherit;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
+
