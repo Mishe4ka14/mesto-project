@@ -3,7 +3,7 @@
   height: 32px;
   background-image: url(/images/Close_Icon.svg);
   background-size: cover;
-  position: fixed;
+  position: absolute;
   top: -38px;
   right: -38px;
   color: white;

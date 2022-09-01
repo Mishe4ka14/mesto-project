@@ -1,10 +1,10 @@
 .popup__container {
-  position: relative;
+  /* position: relative; */
   display: flex;
   flex-direction: column;
 
-  /* ниже позиционируем попап фиксированно по центру экрана */
-  position: fixed;
+  /* ниже позиционируем попап по центру экрана */
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
