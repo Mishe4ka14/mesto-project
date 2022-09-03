@@ -12,4 +12,5 @@
   -технологи построения сетки FlexBox и GridLayout
   -реализованы формы и филдсеты
 
+Ссылка на проект в Git Hub Pages: https://mishe4ka14.github.io/mesto-project/
 
