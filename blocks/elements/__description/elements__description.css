@@ -1,11 +1,6 @@
 .elements__description {
-  /* max-width: 280px; */
   display: flex;
   padding: 25px 15px 31px 21px;
   background-color: white;
-  margin-top: -4px;
   border-radius: 0 0 10px 10px;
-  /* text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden; */
 }

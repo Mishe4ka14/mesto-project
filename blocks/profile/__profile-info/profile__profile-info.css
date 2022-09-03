@@ -2,16 +2,16 @@
   display: flex;
   flex-direction: column;
   max-width: 336px;
-  min-height: 73px;
   justify-content:flex-start;
-  /* align-items: center; */
   padding-left: 26px;
+  margin-top: 20px;
 }
 
 
 @media screen and (max-width: 426px) {
   .profile__profile-info {
     margin-top: 22px;
-   padding: 0;
+    padding: 0;
+    align-content: center;
   }
 }

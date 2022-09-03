@@ -3,7 +3,7 @@
   padding: 0;
   max-width: 880px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
   grid-template-rows: repeat(2, minmax(min-content, max-content));
   /* grid-template-areas:
     "elements__element_karachaevsk elements__element_gora-albrus elements__element_dombai"
@@ -17,7 +17,7 @@
   .elements {
     justify-content: center;
     margin: 0 auto;
-    grid-template-columns: repeat(2, 282px);
+    grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
     grid-template-rows: repeat(3, minmax(min-content, max-content));
     /* grid-template-areas:
     "elements__element_karachaevsk elements__element_gora-albrus"

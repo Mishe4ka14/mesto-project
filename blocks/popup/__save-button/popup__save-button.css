@@ -1,5 +1,6 @@
 .popup__save-button {
-  margin: 48px 0 0;
+  border: 0;
+  margin: 40px 0 0;
   margin-left: 30px;
   width: 358px;
   height: 50px;
@@ -11,6 +12,7 @@
   font-size: 18px;
   line-height: 22px;
   padding: 0;
+  margin-bottom: 37px;
 }
 
 .popup__save-button:hover {
@@ -22,5 +24,7 @@
     width: 238px;
     height: 46px;
     margin: 45px 22px 0;
+    font-size: 14px;
+    line-height: 17px;
   }
 }
