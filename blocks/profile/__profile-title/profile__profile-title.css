@@ -1,10 +1,6 @@
 .profile__profile-title {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(min-content max-content));
-  grid-template-rows: 20px;
+  display: flex;
   align-items:center;
-  margin-bottom: 18px;
-  column-gap: 18px;
 }
 
 @media screen and (max-width: 426px) {
@@ -13,3 +9,5 @@
     margin-bottom: 10px;
   }
 }
+
+

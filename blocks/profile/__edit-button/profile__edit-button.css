@@ -5,13 +5,16 @@
   background-color: rgba(0, 0, 0, 0%);
   background-image: url(../../../images/red_button.svg);
   background-size: cover;
-  background-position: center;
-  width: 15px;
-  height: 15px;
-  outline: 2px white solid;
-  outline-offset: 5px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  /* background-position-y:center; */
+  width: 10px;
+  height: 10px;
+  outline: 1px white solid;
+  outline-offset: 7px;
   border: hidden;
   grid-column: 2/3;
+  cursor: pointer;
 }
 
 .profile__edit-button:hover {
@@ -21,8 +24,10 @@
 
 @media screen and (max-width: 425px) {
   .profile__edit-button {
-    width: 12px;
-    height: 12px;
-    margin-left: 14px;
+    padding: 0;
+    width: 7.5px;
+    height: 7.5px;
+    outline-offset: 5px;
+
   }
 }
