@@ -1,10 +1,10 @@
 .profile__profile-info {
   display: flex;
   flex-direction: column;
-  max-width: 336px;
-  justify-content: first baseline;
+  width: 350px;
+  justify-content: baseline;
+  align-items: flex-start;
   padding-left: 26px;
-  /* margin-top: 20px; */
 }
 
 
@@ -12,6 +12,6 @@
   .profile__profile-info {
     margin-top: 22px;
     padding: 0;
-    align-content: center;
+    align-items: center;
   }
 }
