@@ -5,10 +5,12 @@
   justify-content: center;
   align-items: flex-start;
   padding-left: 26px;
+
 }
 
 
-@media screen and (max-width: 426px) {
+
+@media screen and (max-width: 769px) {
   .profile__profile-info {
     margin-top: 22px;
     padding: 0;
