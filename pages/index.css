@@ -15,12 +15,6 @@
 @import url(../blocks/elements/__description/elements__description.css);
 @import url(../blocks/elements/__photo/elements__photo.css);
 @import url(../blocks/elements/__photo-title/elements__photo-title.css);
-/* @import url(../blocks/elements/__element/_cherkesia/elements__element_cherkesia.css);
-@import url(../blocks/elements/__element/_dombai/elements__element_dombai.css);
-@import url(../blocks/elements/__element/_gora-albrus/elements__element_gora-albrus.css);
-@import url(../blocks/elements/__element/_gora-ushba/elements__element_gora-ushba.css);
-@import url(../blocks/elements/__element/_karachaevsk/elements__element_karachaevsk.css);
-@import url(../blocks/elements/__element/_svanetia/elements__element_svanetia.css); */
 @import url(../blocks/elements/__like-button/elements__like-button.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__info/footer__info.css);
@@ -34,3 +28,4 @@
 @import url(../blocks/popup/__form/popup__form.css);
 @import url(../blocks/popup/__save-button/popup__save-button.css);
 @import url(../blocks/profile/__profile-title/profile__profile-title.css);
+@import url(../blocks/elements/__like-button/_active/elements__like-button_active.css);
