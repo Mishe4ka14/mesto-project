@@ -1,0 +1,15 @@
+.place__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 430px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 426px) {
+  .place__container {
+    max-width: 282px;
+  }
+}

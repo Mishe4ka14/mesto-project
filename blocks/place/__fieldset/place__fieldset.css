@@ -1,0 +1,15 @@
+.place__fieldset {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 54px;
+  padding: 0;
+  border: 0;
+}
+
+@media screen and (max-width: 426px) {
+  .place__fieldset{
+    margin-top: 75px;
+  }
+}

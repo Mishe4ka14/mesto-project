@@ -25,7 +25,7 @@
             </div>
             <p class="profile__subtitle">Исследователь океана</p>
           </div>
-          <button class="profile__add-button" type="button" aria-label="Добавить"></button>
+          <button id="openPlaceButton" class="profile__add-button" type="button" aria-label="Добавить"></button>
         </section>
 
         <section>
@@ -80,7 +80,7 @@
         <p class="footer__info">© 2020 Mesto Russia</p>
       </footer>
 
-        <div id="popup" class="popup popup_opened">
+        <div id="popup" class="popup">
           <div class="popup__container">
             <button id="closePopupButton" type="button" class="popup__close-button"  aria-label="Закрыть"></button>
             <form class="popup__form" name="popup-form" action="#">
@@ -90,6 +90,20 @@
                 <input type="text" class="popup__field" id="field-subtitle" name="field-subtitle" placeholder="Исследователь океана">
               </fieldset>
               <button type="button" value="Сохранить" class="popup__save-button">Сохранить</button>
+            </form>
+          </div>
+        </div>
+
+        <div id="place" class="place">
+          <div class="place__container">
+            <button id="closePlaceButton" type="button" class="place__close-button"  aria-label="Закрыть"></button>
+            <form class="place__form" name="place-form" action="#">
+              <h2 class="place__title">Новое место</h2>
+              <fieldset class="place__fieldset">
+                <input type="text" class="place__field" id="place-title" name="place-title" placeholder="Название">
+                <input type="text" class="place__field" id="place-subtitle" name="place-subtitle" placeholder="Ссылка на картинку">
+              </fieldset>
+              <button type="button" value="Сохранить" class="place__save-button">Создать</button>
             </form>
           </div>
         </div>
