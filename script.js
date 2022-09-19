@@ -25,7 +25,7 @@ openPopupButton?.addEventListener('click', function() {
 });
 
 //ниже все аналогично для модального окна place
-const place = document.querySelector('.place');
+const place = document.querySelector('#place');
 const closePlaceButton = document.querySelector('#closePlaceButton');
 const openPlaceButton = document.querySelector('#openPlaceButton');
 
@@ -50,7 +50,7 @@ openPlaceButton?.addEventListener('click', function() {
 const elements = document.querySelector('#elements')
 
   elements?.addEventListener('click', Event => {
-     const likeButton = Event.target?.closest ('.elements__like-button')
+     const likeButton = Event.target?.closest ('.elements__like-button');
      likeButton.classList.toggle('elements__like-button_active');
     }
   );
@@ -78,6 +78,7 @@ function popupSubmitHandler (evt) {
 //Прикрепляем обработчик к форме
 popup.addEventListener('submit', popupSubmitHandler);
 
+
 //ниже функция добавления карточки
 function addCard(placeTitle, placeLink) { //функция с параметрами названия карточки и ссылкой
   const cardTemplate = document.querySelector('.template').content; //создаем переменную для шаблона
@@ -95,4 +96,9 @@ function addCard(placeTitle, placeLink) { //функция с параметра
 place.addEventListener('submit', function(e) { //обработчик событий ко всему модальному окну
   e.preventDefault();
   addCard();
+  closePlace();
 });
+
+// const trashButton = document.querySelector('#trash');
+
+//удаление карточки

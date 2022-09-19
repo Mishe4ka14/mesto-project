@@ -32,6 +32,7 @@
           <ul id="elements" class="elements card-container">
             <li class="elements__element">
                 <img class="elements__photo" src="./images/karachaevsk.jpg" alt="Храм в горах">
+                <button class="elements__trash-button" id="trash" type="button" aria-label="Удалить"></button>
                 <div class="elements__description">
                   <h2 class="elements__photo-title">Карачаевск</h2>
                   <button id="likeButton" type="button" class="elements__like-button" aria-label="Лайк"></button>
@@ -39,6 +40,7 @@
             </li>
             <li class="elements__element">
                 <img class="elements__photo" src="./images/gora_Albrus.jpg" alt="Гора Эльбрус">
+                <button class="elements__trash-button" id="trash" type="button" aria-label="Удалить"></button>
                 <div class="elements__description">
                   <h2 class="elements__photo-title">Гора Эльбрус</h2>
                   <button id="likeButton2" type="button" class="elements__like-button" aria-label="Лайк"></button>
@@ -46,6 +48,7 @@
             </li>
             <li class="elements__element">
                 <img class="elements__photo" src="./images/dombay.jpg" alt="Горы Домбая">
+                <button class="elements__trash-button" id="trash" type="button" aria-label="Удалить"></button>
                 <div class="elements__description">
                   <h2 class="elements__photo-title">Домбай</h2>
                   <button id="likeButton3" type="button" class="elements__like-button"  aria-label="Лайк"></button>
@@ -53,6 +56,7 @@
             </li>
             <li class="elements__element">
                 <img class="elements__photo" src="./images/gora-ushba.jpg" alt="Гора Ушба">
+                <button class="elements__trash-button" id="trash" type="button" aria-label="Удалить"></button>
                 <div class="elements__description">
                   <h2 class="elements__photo-title">Гора Ушба</h2>
                   <button id="likeButton4" type="button" class="elements__like-button"  aria-label="Лайк"></button>
@@ -60,6 +64,7 @@
             </li>
             <li class="elements__element">
                 <img class="elements__photo" src="./images/svanetia.jpg" alt="Сванская башня">
+                <button class="elements__trash-button" id="trash" type="button" aria-label="Удалить"></button>
                 <div class="elements__description">
                   <h2 class="elements__photo-title">Сванетия</h2>
                   <button id="likeButton5" type="button" class="elements__like-button"  aria-label="Лайк"></button>
@@ -67,6 +72,7 @@
             </li>
             <li class="elements__element">
                 <img class="elements__photo" src="./images/karachaevsk.jpg" alt="Храм в горах">
+                <button class="elements__trash-button" id="trash" type="button" aria-label="Удалить"></button>
                 <div class="elements__description">
                   <h2 class="elements__photo-title">Карачаево-Черкессия</h2>
                   <button id="likeButton6" type="button" class="elements__like-button"  aria-label="Лайк"></button>
@@ -94,7 +100,7 @@
           </div>
         </div>
 
-        <div id="place" class="place">
+        <div id="place" class="popup">
           <div class="place__container">
             <button id="closePlaceButton" type="button" class="place__close-button"  aria-label="Закрыть"></button>
             <form class="place__form" name="place-form" action="#">
@@ -111,6 +117,7 @@
         <!-- ниже размечаем шаблон для новой карточки -->
         <template class="template" id="template">
           <li class="elements__element template__element">
+            <button class="elements__trash-button" id="trash" type="button" aria-label="Удалить"></button>
             <img class="elements__photo" src="">
             <div class="elements__description">
               <h2 class="elements__photo-title"></h2>

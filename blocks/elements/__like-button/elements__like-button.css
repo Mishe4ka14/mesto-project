@@ -1,9 +1,7 @@
 .elements__like-button {
-  /* color: white; */
   width: 22px;
   height: 19px;
   background-color: rgba(0, 0, 0, 0);
-  /* opacity: 0%; */
   border: none;
   order: 998;
   margin-left: auto;
