@@ -29,7 +29,7 @@
         </section>
 
         <section>
-          <ul id="elements" class="elements">
+          <ul id="elements" class="elements card-container">
             <li class="elements__element">
                 <img class="elements__photo" src="./images/karachaevsk.jpg" alt="Храм в горах">
                 <div class="elements__description">
@@ -66,7 +66,7 @@
                 </div>
             </li>
             <li class="elements__element">
-                <img class="elements__photo" src="./images/karachaevsk.jpg" alt="Зрам в горах">
+                <img class="elements__photo" src="./images/karachaevsk.jpg" alt="Храм в горах">
                 <div class="elements__description">
                   <h2 class="elements__photo-title">Карачаево-Черкессия</h2>
                   <button id="likeButton6" type="button" class="elements__like-button"  aria-label="Лайк"></button>
@@ -86,10 +86,10 @@
             <form class="popup__form" name="popup-form" action="#">
               <h2 class="popup__title">Редактировать профиль</h2>
               <fieldset class="popup__fieldset">
-                <input type="text" class="popup__field" id="field-title" name="field-title" placeholder="Жак-Ив Кусто">
-                <input type="text" class="popup__field" id="field-subtitle" name="field-subtitle" placeholder="Исследователь океана">
+                <input type="text" class="popup__field popup__field_name" id="field-title" name="field-title" placeholder="Жак-Ив Кусто" value="">
+                <input type="text" class="popup__field popup__field_job" id="field-subtitle" name="field-subtitle" placeholder="Исследователь океана" value="">
               </fieldset>
-              <button type="button" value="Сохранить" class="popup__save-button">Сохранить</button>
+              <button type="submit" value="Сохранить" class="popup__save-button">Сохранить</button>
             </form>
           </div>
         </div>
@@ -100,12 +100,24 @@
             <form class="place__form" name="place-form" action="#">
               <h2 class="place__title">Новое место</h2>
               <fieldset class="place__fieldset">
-                <input type="text" class="place__field" id="place-title" name="place-title" placeholder="Название">
-                <input type="text" class="place__field" id="place-subtitle" name="place-subtitle" placeholder="Ссылка на картинку">
+                <input type="text" class="place__field place__name" id="place-title" name="place-title" placeholder="Название" value="">
+                <input type="text" class="place__field place__link" id="place-link" name="place-link" placeholder="Ссылка на картинку" value="">
               </fieldset>
-              <button type="button" value="Сохранить" class="place__save-button">Создать</button>
+              <button id="addButton" type="submit" value="Сохранить" class="place__save-button">Создать</button>
             </form>
           </div>
         </div>
+
+        <!-- ниже размечаем шаблон для новой карточки -->
+        <template class="template" id="template">
+          <li class="elements__element template__element">
+            <img class="elements__photo" src="">
+            <div class="elements__description">
+              <h2 class="elements__photo-title"></h2>
+              <button id="likeButton5" type="button" class="elements__like-button"  aria-label="Лайк"></button>
+            </div>
+          </li>
+        </template>
+
   </body>
   </html>
