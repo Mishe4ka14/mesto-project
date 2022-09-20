@@ -1,8 +1,46 @@
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+  ];
+  const container = document.querySelector('.card-container'); //контейнер с карточками
+
+//добавляем карточки которые есть изначально
+initialCards.forEach(function(item) {
+  const cardTemplate = document.querySelector('.template').content;
+  const cardElement = cardTemplate.querySelector('.template__element').cloneNode(true);
+
+  cardElement.querySelector('.elements__photo').src = item.link;
+  cardElement.querySelector('.elements__photo-title').textContent = item.name;
+
+  container.prepend(cardElement);
+
+});
 
 const popup = document.querySelector('#popup');
 const closePopupButton = document.querySelector('#closePopupButton');
 const openPopupButton = document.querySelector('#openPopupButton');
-const container = document.querySelector('.card-container'); //контейнер с карточками
 
 //ниже описываем функции для открытия и закрытия попапа
 function openPopup() {
@@ -81,8 +119,8 @@ popup.addEventListener('submit', popupSubmitHandler);
 
 //ниже функция добавления карточки
 function addCard(placeTitle, placeLink) { //функция с параметрами названия карточки и ссылкой
-  const cardTemplate = document.querySelector('.template').content; //создаем переменную для шаблона
-  const cardElement = cardTemplate.querySelector('.template__element').cloneNode(true); //создаем клон шаблона, в который будем подставлять значения
+  cardTemplate = document.querySelector('.template').content; //создаем переменную для шаблона
+  cardElement = cardTemplate.querySelector('.template__element').cloneNode(true); //создаем клон шаблона, в который будем подставлять значения
 
   placeTitle = document.querySelector('.place__name'); //присваиваем параметрам функции название и ссылку из модального окна
   placeLink = document.querySelector('.place__link');
