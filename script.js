@@ -1,3 +1,4 @@
+//**************************CLIENT CODE********************/
 const initialCards = [
   {
     name: 'Архыз',
@@ -24,7 +25,17 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
   ];
-  const container = document.querySelector('.card-container'); //контейнер с карточками
+
+//***************************ПЕРЕМЕННЫЕ**********************//
+const container = document.querySelector('.card-container'); //контейнер с карточками
+
+const popup = document.querySelector('#popup');
+const closePopupButton = document.querySelector('#closePopupButton');
+const openPopupButton = document.querySelector('#openPopupButton');
+
+const place = document.querySelector('#place');
+const closePlaceButton = document.querySelector('#closePlaceButton');
+const openPlaceButton = document.querySelector('#openPlaceButton');
 
 //добавляем карточки которые есть изначально
 initialCards.forEach(function(item) {
@@ -34,26 +45,17 @@ initialCards.forEach(function(item) {
   cardElement.querySelector('.elements__photo').src = item.link;
   cardElement.querySelector('.elements__photo-title').textContent = item.name;
 
-  container.prepend(cardElement);
+  //удаление карточки
+  cardElement.querySelector('#trash').addEventListener('click', function() {
+    cardElement.remove();
+  });
 
+  container.prepend(cardElement);
 });
 
-const popup = document.querySelector('#popup');
-const closePopupButton = document.querySelector('#closePopupButton');
-const openPopupButton = document.querySelector('#openPopupButton');
+//************************СЛУШАТЕЛИ СОБЫТИЙ********************/
 
-//ниже описываем функции для открытия и закрытия попапа
-function openPopup() {
-  if(popup !== null) {
-      popup.classList.add('popup_opened');
-  }
-}
-
-function closePopup() {
-  popup?.classList.remove('popup_opened');
-}
-
-//добавляем обработчик событий на кнопки
+//добавляем обработчик событий на кнопки попапа
 closePopupButton?.addEventListener('click', function() {
   closePopup();
 });
@@ -62,19 +64,7 @@ openPopupButton?.addEventListener('click', function() {
   openPopup();
 });
 
-//ниже все аналогично для модального окна place
-const place = document.querySelector('#place');
-const closePlaceButton = document.querySelector('#closePlaceButton');
-const openPlaceButton = document.querySelector('#openPlaceButton');
-
-function closePlace() {
-  place?.classList.remove('place_opened');
-}
-
-function openPlace() {
-  place?.classList.add('place_opened');
-}
-
+//обработчик событий для окна добавления новой карточки
 closePlaceButton?.addEventListener('click', function() {
   closePlace();
 });
@@ -84,16 +74,41 @@ openPlaceButton?.addEventListener('click', function() {
 });
 
 
-//ниже описываем функцию для лайка
-const elements = document.querySelector('#elements')
+//обработчик событий для кнопки лайка
+container?.addEventListener('click', Event => {
+  const likeButton = Event.target?.closest ('.elements__like-button');
+  likeButton.classList.toggle('elements__like-button_active');
+ }
+);
 
-  elements?.addEventListener('click', Event => {
-     const likeButton = Event.target?.closest ('.elements__like-button');
-     likeButton.classList.toggle('elements__like-button_active');
-    }
-  );
+//обработчик событий для редактирования информации в профиле
+popup.addEventListener('submit', popupSubmitHandler);
 
+//обработчик ссобытий для добавления новой карточки
+place?.addEventListener('submit', function(e) {
+  e.preventDefault();
+  addCard();
+  closePlace();
+});
 
+//****************************FUNCTIONS*********************/
+
+//описываем функции для открытия и закрытия попапа
+function openPopup() {
+  popup.classList.add('popup_opened');
+}
+
+function closePopup() {
+  popup?.classList.remove('popup_opened');
+}
+//аналогично для окна добавления карточки
+function closePlace() {
+  place?.classList.remove('place_opened');
+}
+
+function openPlace() {
+  place?.classList.add('place_opened');
+}
 
 //редактирование имени и информации в профиле
 function popupSubmitHandler (evt) {
@@ -104,8 +119,8 @@ function popupSubmitHandler (evt) {
   const jobInput = document.querySelector('.popup__field_job');
 
   //Выбераем элементы, куда должны быть вставлены значения полей
-  let profileTitle = document.querySelector('.profile__title');
-  let profileSubtitle = document.querySelector('.profile__subtitle');
+  const profileTitle = document.querySelector('.profile__title');
+  const profileSubtitle = document.querySelector('.profile__subtitle');
 
   //Вставляем новые значения с помощью textContent
   profileTitle.textContent = nameInput.value;
@@ -113,14 +128,11 @@ function popupSubmitHandler (evt) {
 
   closePopup();
 }
-//Прикрепляем обработчик к форме
-popup.addEventListener('submit', popupSubmitHandler);
 
-
-//ниже функция добавления карточки
+//функция добавления новой карточки
 function addCard(placeTitle, placeLink) { //функция с параметрами названия карточки и ссылкой
-  cardTemplate = document.querySelector('.template').content; //создаем переменную для шаблона
-  cardElement = cardTemplate.querySelector('.template__element').cloneNode(true); //создаем клон шаблона, в который будем подставлять значения
+  const cardTemplate = document.querySelector('.template')?.content; //создаем переменную для шаблона
+  const cardElement = cardTemplate.querySelector('.template__element').cloneNode(true); //создаем клон шаблона, в который будем подставлять значения
 
   placeTitle = document.querySelector('.place__name'); //присваиваем параметрам функции название и ссылку из модального окна
   placeLink = document.querySelector('.place__link');
@@ -128,15 +140,17 @@ function addCard(placeTitle, placeLink) { //функция с параметра
   cardElement.querySelector('.elements__photo-title').textContent = placeTitle.value; //подставляем значения в шаблон
   cardElement.querySelector('.elements__photo').src = placeLink.value;
 
-  container.prepend(cardElement); //вставляем разметку карточки в DOM
-}
+  //добавляем обработчик на кнопку удаления
+  cardElement.querySelector('.elements__trash-button').addEventListener('click', function() {
+    cardElement.remove();
+  });
 
-place.addEventListener('submit', function(e) { //обработчик событий ко всему модальному окну
-  e.preventDefault();
-  addCard();
-  closePlace();
-});
+  container?.prepend(cardElement); //вставляем разметку карточки в DOM
+  };
 
-// const trashButton = document.querySelector('#trash');
 
-//удаление карточки
+
+
+
+
+
