@@ -1,0 +1,7 @@
+.image__image-full {
+  max-width: 75vw;
+  max-height: 75vh;
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
