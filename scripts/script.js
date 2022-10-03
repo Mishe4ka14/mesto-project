@@ -53,7 +53,7 @@ function handleProfileFormSubmit (evt) {
   //Вставляем новые значения с помощью textContent
   profileTitle.textContent = nameInput.value;
   profileSubtitle.textContent = jobInput.value;
-  evt.target.reset();
+
   closePopup(profilePopup);
 }
 
