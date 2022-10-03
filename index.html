@@ -56,21 +56,21 @@
 
         <div id="place" class="popup">
           <div class="place__container">
-            <button id="closePlaceButton" type="button" class="place__close-button"  aria-label="Закрыть"></button>
-            <form class="place__form" name="place-form" action="#">
+            <button id="closePlaceButton" type="button" class="popup__close-button"  aria-label="Закрыть"></button>
+            <form class="popup__form" name="place-form" action="#" id="place__form">
               <h2 class="place__title">Новое место</h2>
               <fieldset class="place__fieldset">
-                <input type="text" class="place__field place__name" id="place-title" name="place-title" placeholder="Название" value="">
-                <input type="text" class="place__field place__link" id="place-link" name="place-link" placeholder="Ссылка на картинку" value="">
+                <input type="text" class="popup__field popup__field_name" id="place-title" name="place-title" placeholder="Название" value="">
+                <input type="text" class="popup__field popup__field_job" id="place-link" name="place-link" placeholder="Ссылка на картинку" value="">
               </fieldset>
-              <button id="addButton" type="submit" value="Сохранить" class="place__save-button">Создать</button>
+              <button id="addButton" type="submit" value="Сохранить" class="popup__save-button">Создать</button>
             </form>
           </div>
         </div>
 
         <div id="image" class="popup image">
           <div class="image__container">
-            <button id="closeImageButton" type="button" class="image__close-button"  aria-label="Закрыть"></button>
+            <button id="closeImageButton" type="button" class="popup__close-button"  aria-label="Закрыть"></button>
             <img class="image__image-full" src="#" alt="">
             <h2 class="image__title" id="image__title"></h2>
           </div>
