@@ -80,7 +80,7 @@ function createCard(item) {
     });
 
     //обработчик полномасштабного изображения
-    cardElement.querySelector('.elements__photo').addEventListener('click', function(evt) {
+      imageCard.addEventListener('click', function(evt) {
       fullImage.src = evt.target.src;
       fullImage.alt = evt.target.alt;
       fullImageTitle.textContent = evt.target.alt;
@@ -100,7 +100,7 @@ function addCard(placeTitle, placeLink) {
 //добавляем карточки из массива
 initialCards.forEach(function(item) {
   const cardElement = createCard(item)
-  container.prepend(cardElement);
+  container.append(cardElement);
 });
 
 //************************СЛУШАТЕЛИ СОБЫТИЙ********************/
@@ -112,7 +112,7 @@ closeButtons.forEach((button) => {
   button.addEventListener('click', () => closePopup(popup));
 });
 
-openPopupButton?.addEventListener('click', function() {
+profileOpenButton?.addEventListener('click', function() {
   openPopup(profilePopup);
 });
 
@@ -121,7 +121,7 @@ placeOpenButton?.addEventListener('click', function() {
 });
 
 //обработчик событий для редактирования информации в профиле
-popup?.addEventListener('submit', handleProfileFormSubmit);
+profilePopup?.addEventListener('submit', handleProfileFormSubmit);
 
 //обработчик ссобытий для добавления новой карточки
 placePopup?.addEventListener('submit', function(e) {
