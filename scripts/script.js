@@ -1,4 +1,3 @@
-
 //***************************ПЕРЕМЕННЫЕ**********************//
 const content = document.querySelector('.page') //контент на странице
 const container = content.querySelector('.card-container'); //контейнер с карточками
@@ -132,6 +131,33 @@ placePopup?.addEventListener('submit', function(e) {
 
 });
 
+//закрытие попапа кликом на esc
+content.addEventListener('keydown', function(evt) {
+  if(evt.key === "Escape"){
+    closePopup(profilePopup);
+    closePopup(placePopup);
+    closePopup(imagePopup);
+  }
+});
+
+//закрытие попапов кликом на оверлей
+profilePopup.addEventListener('click', (evt) => {
+  if (evt.currentTarget === evt.target) {
+    closePopup(profilePopup)
+  }
+});
+
+placePopup.addEventListener('click', (evt) => {
+  if (evt.currentTarget === evt.target) {
+    closePopup(placePopup)
+  }
+});
+
+imagePopup.addEventListener('click', (evt) => {
+  if (evt.currentTarget === evt.target) {
+    closePopup(imagePopup)
+  }
+});
 
 
 
