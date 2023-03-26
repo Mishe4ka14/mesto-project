@@ -35,6 +35,8 @@ const placeLink = content.querySelector('#place-link');
 // находим все крестики проекта по универсальному селектору
 const closeButtons = document.querySelectorAll('.popup__close-button');
 
+//находим форму профиля
+const profileForm = content.querySelector('#popup-form');
 //****************************FUNCTIONS*********************/
 //функции открытия и закрытия для всех попапов
 function openPopup(item) {
@@ -52,6 +54,10 @@ function handleProfileFormSubmit (evt) {
   //Вставляем новые значения с помощью textContent
   profileTitle.textContent = nameInput.value;
   profileSubtitle.textContent = jobInput.value;
+
+  //сбрасываем форму плохим способом!
+  nameInput.value = "";
+  jobInput.value = "";
 
   closePopup(profilePopup);
 }
@@ -159,8 +165,66 @@ imagePopup.addEventListener('click', (evt) => {
   }
 });
 
+//****************************VALIDATION*************************************/
+
+// const formElement = content.querySelector('.popup__form');
+// const formInput = formElement.querySelector('.popup__field');
+// const formError = formElement.querySelector(`${formInput.id}-error`);
+
+//функция показа сообщения об ошибке
+const showInputError = (formElement, inputElement, errorMessage) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+
+  inputElement.classList.add('.popup__field-error');
+  errorElement.textContent = errorMessage;
+  // errorElement.classList.add('.popup__field-error_active');
+};
+
+//функция удаления сообщения об ошибке
+const hideInputError = (formElement, inputElement) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+
+  inputElement.classList.remove('.popup__field-error');
+  errorElement.classList.remove('.popup__field-error_active');
+  errorElement.textContent = '';
+};
+
+//функция проверки валидации формы
+const isValid = (formElement, inputElement) => {
+  if(!inputElement.validity.valid){
+    showInputError(formElement, inputElement, inputElement.validationMessage);
+  }
+  else {
+    hideInputError(formElement, inputElement);
+  }
+};
 
 
+//функция добавления обработчиков полям одной формы
+const setEventListeners = (formElement) => {
+  //создаем массив инпутов внутри одной формы
+  const inputList = Array.from(formElement.querySelectorAll('.popup__field'));
+
+  //каждому вешаем обработчик и вызываем проверку
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener('input', () => {
+      isValid(formElement, inputElement)
+    });
+  });
+};
+
+//функция добавления обработчиков всем формам
+const enableValidation = () => {
+  //создаем массив всех форм на странице
+  const formList = Array.from(content.querySelectorAll('.popup__form'));
+
+  //на каждую форму вешаем вызов
+  formList.forEach((formElement) => {
+    setEventListeners(formElement);
+  });
+};
+
+enableValidation();
 
 
 
