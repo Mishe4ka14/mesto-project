@@ -1,14 +1,7 @@
 .popup__field-error {
-  /* visibility: hidden; */
-  /* margin-top: 5px; */
-  /* margin-top: -25px;
-  margin-left: 42px;
-  margin-bottom: 30px; */
-  margin: 0;
+  visibility: hidden;
+  padding-left: 40px;
   border: 0;
-  padding-left: 42px;
-  padding-top: 5px;
-  margin-top: -20px;
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;

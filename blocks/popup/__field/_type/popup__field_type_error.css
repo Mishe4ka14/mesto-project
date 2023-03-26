@@ -1,3 +1,4 @@
 .popup__field_type_error {
+  border: 1px;
   border-bottom: 1px #FF0000 solid;
 }

@@ -167,25 +167,24 @@ imagePopup.addEventListener('click', (evt) => {
 
 //****************************VALIDATION*************************************/
 
-// const formElement = content.querySelector('.popup__form');
-// const formInput = formElement.querySelector('.popup__field');
-// const formError = formElement.querySelector(`${formInput.id}-error`);
-
 //функция показа сообщения об ошибке
 const showInputError = (formElement, inputElement, errorMessage) => {
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
 
   inputElement.classList.add('.popup__field-error');
+  inputElement.classList.add('popup__field_type_error');
+  errorElement.classList.add('popup__field-error_active');
   errorElement.textContent = errorMessage;
-  // errorElement.classList.add('.popup__field-error_active');
+
 };
 
 //функция удаления сообщения об ошибке
 const hideInputError = (formElement, inputElement) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
 
-  inputElement.classList.remove('.popup__field-error');
-  errorElement.classList.remove('.popup__field-error_active');
+  inputElement.classList.remove('popup__field-error');
+  errorElement.classList.remove('popup__field-error_active');
+  inputElement.classList.remove('popup__field_type_error');
   errorElement.textContent = '';
 };
 

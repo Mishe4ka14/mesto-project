@@ -1,3 +1,5 @@
 .popup__field-error_active {
   visibility: visible;
+  margin-top: -20px;
+  padding-bottom: 10px;
 }
