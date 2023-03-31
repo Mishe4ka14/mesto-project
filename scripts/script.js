@@ -40,7 +40,7 @@ const profileForm = content.querySelector('#popup-form');
 //****************************FUNCTIONS*********************/
 //функции открытия и закрытия для всех попапов
 function openPopup(item) {
-  item.classList.add('popup_opened')
+  item.classList.add('popup_opened');
 }
 
 function closePopup(item) {
@@ -166,6 +166,26 @@ imagePopup.addEventListener('click', (evt) => {
 });
 
 //****************************VALIDATION*************************************/
+//проверяем есть ли невалидная форма
+const hasInvalidInput = (inputList) => {
+  return inputList.some((inputElement) => {
+    return !inputElement.validity.valid;
+  })
+};
+
+
+//функция отключения кнопки если форма невалидна
+const toggleButtonState = (inputList, buttonElement) => {
+  if (hasInvalidInput(inputList)) {
+    buttonElement.disabled = true;
+    buttonElement.classList.add('popup__save-button_inactive');
+  } else {
+    buttonElement.disabled = false;
+    buttonElement.classList.remove('popup__save-button_inactive');
+  }
+};
+
+
 
 //функция показа сообщения об ошибке
 const showInputError = (formElement, inputElement, errorMessage) => {
@@ -190,6 +210,14 @@ const hideInputError = (formElement, inputElement) => {
 
 //функция проверки валидации формы
 const isValid = (formElement, inputElement) => {
+  //делаем проверку регулярным выражением и показывыем кастомное сообщение
+  if (inputElement.validity.patternMismatch) {
+    inputElement.setCustomValidity(inputElement.dataset.errorMessage);
+  }
+  else {
+    inputElement.setCustomValidity("");
+  }
+
   if(!inputElement.validity.valid){
     showInputError(formElement, inputElement, inputElement.validationMessage);
   }
@@ -204,10 +232,19 @@ const setEventListeners = (formElement) => {
   //создаем массив инпутов внутри одной формы
   const inputList = Array.from(formElement.querySelectorAll('.popup__field'));
 
+  //находим кнопку сохранения
+  const buttonElement = formElement.querySelector('.popup__save-button');
+
+  //сразу блокируем кнопку до ввода данных
+  toggleButtonState(inputList, buttonElement);
+
   //каждому вешаем обработчик и вызываем проверку
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', () => {
       isValid(formElement, inputElement)
+
+      //если форма невалидна блокируем кнопку
+      toggleButtonState(inputList, buttonElement);
     });
   });
 };
