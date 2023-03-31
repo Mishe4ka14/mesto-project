@@ -5,8 +5,10 @@
   flex-direction: column;
   max-width: 430px;
   width: 100%;
+  height: 330px;
   background-color: white;
   border-radius: 10px;
+  /* vertical-align: bottom; */
 }
 
 @media screen and (max-width: 426px) {

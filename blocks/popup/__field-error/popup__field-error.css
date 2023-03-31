@@ -1,5 +1,6 @@
 .popup__field-error {
   display: block;
+  height: 30px;
   visibility: hidden;
   padding-left: 40px;
   border: 0;

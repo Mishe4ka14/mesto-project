@@ -1,0 +1,19 @@
+{
+  "name": "mesto-project",
+  "version": "1.0.0",
+  "description": "Третий учебный проект Яндекс Практикума:   Лендинг про Кавказ и горы России с изображениями мест и подписями к ним.   Так же реализовано всплывающее окно - попап, с формами для вводы информации, кнопкой \"сохранить\" и кнопкой \"закрыть\".   Для появления попапа необходимо разкомментировать файл \"popup__opened.css\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mishe4ka14/mesto-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mishe4ka14/mesto-project/issues"
+  },
+  "homepage": "https://github.com/Mishe4ka14/mesto-project#readme"
+}
