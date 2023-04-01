@@ -11,6 +11,7 @@
   -Адаптивная верстка: применение @media запросов
   -технологи построения сетки FlexBox и GridLayout
   -реализованы формы и филдсеты
+  Проект собран на Webpack
 
 Ссылка на проект в Git Hub Pages: https://mishe4ka14.github.io/mesto-project/
 

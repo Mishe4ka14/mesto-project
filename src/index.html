@@ -2,7 +2,6 @@
   <html lang="ru">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./pages/index.css">
     <title>Mesto</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Третий учебный проект на Яндекс Практикуме">
@@ -11,12 +10,12 @@
   </head>
   <body class="page">
       <header class="header">
-        <img class="header__logo" src="./images/logo.svg" alt="Логотип">
+        <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="Логотип">
       </header>
 
       <main>
         <section class="profile">
-          <img class="profile__avatar" src="./images/Avayar2.jpg" alt="Аватарка">
+          <img class="profile__avatar" src="<%=require('./images/Avayar2.jpg')%>" alt="Аватарка">
           <div class="profile__profile-info">
             <div class="profile__profile-title">
               <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -105,6 +104,5 @@
           </li>
         </template>
 
-        <script type="module" src="./src/components/index.js"></script>
   </body>
   </html>
