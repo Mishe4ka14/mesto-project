@@ -1,7 +1,7 @@
 //***************************ПЕРЕМЕННЫЕ**********************//
 export const content = document.querySelector('.page') //контент на странице
 export const container = content.querySelector('.card-container'); //контейнер с карточками
-
+export const popups = document.querySelectorAll('.popup')
 //переменные окна редактирования профиля
 export const profilePopup = content.querySelector('#popup');
 export const profileCloseButton = content.querySelector('#closePopupButton');
@@ -11,6 +11,7 @@ export const profileOpenButton = content.querySelector('#openPopupButton');
 export const placePopup = content.querySelector('#place');
 export const placeCloseButton = content.querySelector('#closePlaceButton');
 export const placeOpenButton = content.querySelector('#openPlaceButton');
+export const addButton = content.querySelector('#addButton');
 
 //переменные окна полномасштабного изображения
 export const imagePopup = content.querySelector('#image');
