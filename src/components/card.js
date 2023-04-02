@@ -1,4 +1,5 @@
-import { container, cardTemplate, initialCards } from "./utils.js";
+import { container, cardTemplate, initialCards, fullImage, fullImageTitle, imagePopup } from "./utils.js";
+import { openPopup } from "./modal.js";
 
 //добавляем произвольные карточки
 export function addCard(placeTitle, placeLink) {

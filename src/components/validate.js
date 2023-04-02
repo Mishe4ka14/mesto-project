@@ -19,7 +19,7 @@ export const toggleButtonState = (inputList, buttonElement, settings) => {
 //функция добавления обработчиков всем формам
 export const enableValidation = (settings) => {
   //создаем массив всех форм на странице
-  const formList = Array.from(document.querySelectorAll('.popup__form'));
+  const formList = Array.from(document.querySelectorAll(settings.formSelector));
 
   //на каждую форму вешаем вызов
   formList.forEach((formElement) => {
@@ -68,10 +68,10 @@ export const isValid = (formElement, inputElement, settings) => {
 //функция добавления обработчиков полям одной формы
 export const setEventListeners = (formElement, settings) => {
   //создаем массив инпутов внутри одной формы
-  const inputList = Array.from(formElement.querySelectorAll('.popup__field'));
+  const inputList = Array.from(formElement.querySelectorAll(settings.inputSelector));
 
   //находим кнопку сохранения
-  const buttonElement = formElement.querySelector('.popup__save-button');
+  const buttonElement = formElement.querySelector(settings.submitButtonSelector);
 
   //сразу блокируем кнопку до ввода данных
   toggleButtonState(inputList, buttonElement, settings);
