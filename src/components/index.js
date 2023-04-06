@@ -17,7 +17,9 @@ import {
 import {openPopup, closePopup, handleProfileFormSubmit} from './modal.js';
 import { enableValidation} from './validate.js';
 import {addCard} from './card.js';
-
+import { getCards } from './api.js';
+import { createCard } from './card.js';
+import { container } from './utils.js';
 import add_button from '../images/Add_Button.svg';
 import add_button_big from '../images/Add_Button-big.svg';
 import avatar from '../images/Avatar.jpg';
@@ -82,5 +84,16 @@ placePopup?.addEventListener('submit', function(e) {
   addButton.classList.add('popup__save-button_inactive');
   addButton.disabled = true;
 });
+
+//*****************************API****************************** */
+
+const usersCard = async () => {
+  const cards = await getCards();
+  cards.forEach(function(item) {
+  const cardElement = createCard(item)
+  container.append(cardElement);
+  })
+}
+usersCard();
 
 

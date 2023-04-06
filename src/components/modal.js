@@ -1,4 +1,5 @@
 import { popups, profileTitle, profileSubtitle, nameInput, jobInput, profilePopup } from "./utils.js";
+import { getUserInfo } from "./api.js";
 
 function closeByEscape(evt) {
   if (evt.key === 'Escape') {
@@ -43,3 +44,13 @@ export function handleProfileFormSubmit (evt) {
 
   closePopup(profilePopup);
 }
+
+const userInfo = async () => {
+  const info = await getUserInfo();
+  console.log(info);
+  profileTitle.textContent = info.name;
+  profileSubtitle.textContent = info.about;
+  }
+
+userInfo();
+

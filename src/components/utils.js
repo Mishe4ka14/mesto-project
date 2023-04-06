@@ -6,6 +6,7 @@ export const popups = document.querySelectorAll('.popup')
 export const profilePopup = content.querySelector('#popup');
 export const profileCloseButton = content.querySelector('#closePopupButton');
 export const profileOpenButton = content.querySelector('#openPopupButton');
+export const profileAvatar = content.querySelector('.profile__avatar');
 
 //перменные окна добавления карточки
 export const placePopup = content.querySelector('#place');
