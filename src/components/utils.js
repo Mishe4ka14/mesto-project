@@ -7,12 +7,13 @@ export const profilePopup = content.querySelector('#popup');
 export const profileCloseButton = content.querySelector('#closePopupButton');
 export const profileOpenButton = content.querySelector('#openPopupButton');
 export const profileAvatar = content.querySelector('.profile__avatar');
-
+export const cards = document.querySelector('.elements');
 //перменные окна добавления карточки
 export const placePopup = content.querySelector('#place');
 export const placeCloseButton = content.querySelector('#closePlaceButton');
 export const placeOpenButton = content.querySelector('#openPlaceButton');
 export const addButton = content.querySelector('#addButton');
+export const trash = content.querySelector('#trash');
 
 //переменные окна полномасштабного изображения
 export const imagePopup = content.querySelector('#image');

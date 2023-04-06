@@ -69,14 +69,14 @@
             <form class="popup__form" name="place-form" action="#" id="place__form" novalidate>
               <h2 class="place__title">Новое место</h2>
               <fieldset class="place__fieldset">
-                <input type="text" class="popup__field popup__field_name" id="place-title" name="place-title" placeholder="Название" value=""
+                <input type="text" class="popup__field popup__field_name" id="place-title" name="place_title" placeholder="Название" value=""
                   minlength="2"
                   maxlength="30"
                   pattern="^[a-zA-Zа-яА-ЯёЁ\s\-]+$"
                   data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
                   required>
                 <span class="popup__field-error place-title-error"></span>
-                <input type="url" class="popup__field popup__field_job" id="place-link" name="place-link" placeholder="Ссылка на картинку" value="" required>
+                <input type="url" class="popup__field popup__field_job" id="place-link" name="place_link" placeholder="Ссылка на картинку" value="" required>
                 <span class="popup__field-error place-link-error"></span>
               </fieldset>
               <button id="addButton" type="submit" value="Сохранить" class="popup__save-button">Создать</button>

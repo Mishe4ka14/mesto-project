@@ -45,12 +45,13 @@ export function handleProfileFormSubmit (evt) {
   closePopup(profilePopup);
 }
 
-const userInfo = async () => {
-  const info = await getUserInfo();
-  console.log(info);
+//отрисовываем инфу пользователя
+const userInfo = () => {
+  return getUserInfo()
+    .then(info => {
   profileTitle.textContent = info.name;
   profileSubtitle.textContent = info.about;
-  }
+  })}
 
 userInfo();
 

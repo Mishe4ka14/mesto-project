@@ -75,25 +75,25 @@ placeOpenButton?.addEventListener('click', function() {
 //обработчик событий для редактирования информации в профиле
 profilePopup?.addEventListener('submit', handleProfileFormSubmit);
 
-//обработчик ссобытий для добавления новой карточки
-placePopup?.addEventListener('submit', function(e) {
-  e.preventDefault();
-  addCard(placeTitle, placeLink);
-  e.target.reset();
-  closePopup(placePopup);
-  addButton.classList.add('popup__save-button_inactive');
-  addButton.disabled = true;
-});
-
-//*****************************API****************************** */
-
-const usersCard = async () => {
-  const cards = await getCards();
-  cards.forEach(function(item) {
-  const cardElement = createCard(item)
-  container.append(cardElement);
+const usersCard = () => {
+  return getCards()
+  .then(cards => {
+    cards.forEach(function(item) {
+      const cardElement = createCard(item)
+      container.append(cardElement);
+    })
   })
 }
 usersCard();
+//обработчик ссобытий для добавления новой карточки
+// placePopup?.addEventListener('submit', function(e) {
+//   e.preventDefault();
+//   addCard(placeTitle, placeLink);
+//   e.target.reset();
+//   closePopup(placePopup);
+//   addButton.classList.add('popup__save-button_inactive');
+//   addButton.disabled = true;
+// });
+import { createNewCard } from './api.js';
 
 

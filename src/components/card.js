@@ -1,6 +1,6 @@
 import { cardTemplate, fullImage, fullImageTitle, imagePopup } from "./utils.js";
 import { openPopup } from "./modal.js";
-
+import { getCards } from "./api.js";
 import { container } from './utils.js';
 //добавляем произвольные карточки
 export function addCard(placeTitle, placeLink) {
@@ -42,13 +42,13 @@ export function createCard(item) {
 
   return cardElement
 }
-import { getCards } from './api.js';
-//добавляем карточки из массива
-// const usersCard = async () => {
-//   const cards = await getCards();
-//   cards.forEach(function(item) {
-//   const cardElement = createCard(item)
-//   container.append(cardElement);
+// const usersCard = () => {
+//   return getCards()
+//   .then(cards => {
+//     cards.forEach(function(item) {
+//       const cardElement = createCard(item)
+//       container.append(cardElement);
+//     })
 //   })
 // }
 // usersCard();
