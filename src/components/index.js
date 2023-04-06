@@ -38,7 +38,7 @@ import svanetia from '../images/svanetia.jpg';
 import trash_btn from '../images/trash-btn.svg';
 import vector from '../images/Vector.svg';
 import vector1 from '../images/Vector1.svg';
-
+import { createCardRequest, setUserInfo } from './api.js';
 import '../pages/index.css';
 //**************************FUNCTIONS***************************/
 
@@ -72,8 +72,18 @@ placeOpenButton?.addEventListener('click', function() {
   openPopup(placePopup);
 });
 
-//обработчик событий для редактирования информации в профиле
-profilePopup?.addEventListener('submit', handleProfileFormSubmit);
+//функция изменения данных профиля
+const handleSetUserInfo = (evt) => {
+  evt.preventDefault();
+  setUserInfo(nameInput.value, jobInput.value)
+    .then((info) => {
+      profileTitle.textContent = info.name;
+      profileSubtitle.textContent = info.about;
+      closePopup(profilePopup)
+    })
+}
+//обработчик данных профиля
+profilePopup?.addEventListener('submit', handleSetUserInfo);
 
 const usersCard = () => {
   return getCards()
@@ -85,15 +95,21 @@ const usersCard = () => {
   })
 }
 usersCard();
-//обработчик ссобытий для добавления новой карточки
-// placePopup?.addEventListener('submit', function(e) {
-//   e.preventDefault();
-//   addCard(placeTitle, placeLink);
-//   e.target.reset();
-//   closePopup(placePopup);
-//   addButton.classList.add('popup__save-button_inactive');
-//   addButton.disabled = true;
-// });
-import { createNewCard } from './api.js';
+
+//фнкция добавления новой карточки
+placePopup.addEventListener('submit', function(evt){
+  evt.preventDefault();
+  const x = placeTitle.value;
+  const y = placeLink.value;
+  console.log(x,y);
+  createCardRequest(x,y)
+  .then(res => {addCard(res.name, res.link)
+    closePopup(placePopup);
+    evt.target.reset();
+    addButton.classList.add('popup__save-button_inactive');
+    addButton.disabled = true;
+  })}
+)
+
 
 

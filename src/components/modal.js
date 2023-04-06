@@ -1,4 +1,4 @@
-import { popups, profileTitle, profileSubtitle, nameInput, jobInput, profilePopup } from "./utils.js";
+import { popups, profileTitle, profileSubtitle, nameInput, jobInput, profilePopup, profileAvatar } from "./utils.js";
 import { getUserInfo } from "./api.js";
 
 function closeByEscape(evt) {
@@ -51,6 +51,7 @@ const userInfo = () => {
     .then(info => {
   profileTitle.textContent = info.name;
   profileSubtitle.textContent = info.about;
+  profileAvatar.src = info.avatar;
   })}
 
 userInfo();
