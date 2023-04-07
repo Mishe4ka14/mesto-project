@@ -11,17 +11,14 @@ import {
   placeTitle,
   placeLink,
   closeButtons,
-  addButton,
-  likesNumber,
-  cards
+  cards,
+  profileAvatar,
+  container
 } from './utils.js';
 
-import {openPopup, closePopup, handleProfileFormSubmit} from './modal.js';
-import { enableValidation} from './validate.js';
-import {addCard} from './card.js';
-import { getCards } from './api.js';
-import { createCard } from './card.js';
-import { container } from './utils.js';
+import {openPopup, closePopup} from './modal.js';
+import { createCard, addCard } from './card.js';
+import { createCardRequest, setUserInfo, getUserInfo, getCards } from './api.js';
 import add_button from '../images/Add_Button.svg';
 import add_button_big from '../images/Add_Button-big.svg';
 import avatar from '../images/Avatar.jpg';
@@ -40,39 +37,9 @@ import svanetia from '../images/svanetia.jpg';
 import trash_btn from '../images/trash-btn.svg';
 import vector from '../images/Vector.svg';
 import vector1 from '../images/Vector1.svg';
-import { createCardRequest, setUserInfo } from './api.js';
 import '../pages/index.css';
-//**************************FUNCTIONS***************************/
 
-enableValidation({
-  formSelector: '.popup__form',
-  inputSelector: '.popup__field',
-  submitButtonSelector: '.popup__save-button',
-  inactiveButtonClass: 'popup__save-button_inactive',
-  inputErrorClass: 'popup__field_error',
-  inputErrorType: 'popup__field_type_error',
-  errorClass: 'popup__field-error_active'
-});
-
-//**************************EVENT LISTENERS*************************/
-
-//универсальный обработчик крестиков
-closeButtons.forEach((button) => {
-  // находим 1 раз ближайший к крестику попап
-  const popup = button.closest('.popup');
-  // устанавливаем обработчик закрытия на крестик
-  button.addEventListener('click', () => closePopup(popup));
-});
-
-profileOpenButton?.addEventListener('click', function() {
-  nameInput.value = profileTitle.textContent;
-  jobInput.value = profileSubtitle.textContent;
-  openPopup(profilePopup);
-});
-
-placeOpenButton?.addEventListener('click', function() {
-  openPopup(placePopup);
-});
+//*****************************FUNCTION********************************* */
 
 //функция изменения данных профиля
 const handleSetUserInfo = (evt) => {
@@ -83,24 +50,32 @@ const handleSetUserInfo = (evt) => {
       profileSubtitle.textContent = info.about;
       closePopup(profilePopup)
     })
-}
+  };
 
-//обработчик данных профиля
-profilePopup?.addEventListener('submit', handleSetUserInfo);
+//отрисовываем данные профиля
+const userInfo = () => {
+  return getUserInfo()
+  .then(info => {
+    profileTitle.textContent = info.name;
+    profileSubtitle.textContent = info.about;
+    profileAvatar.src = info.avatar;
+  })
+};
+userInfo();
 
+//отрисовываем карточки
 const usersCard = () => {
   return getCards()
   .then(cards => {
     cards.forEach(function(item) {
       const cardElement = createCard(item)
-      // console.log(item.owner._id);
       container.append(cardElement);
     })
   })
 }
 usersCard();
 
-//фнкция добавления новой карточки
+//функция добавления новой карточки
 const handleSetImage = (evt) => {
   evt.preventDefault();
   createCardRequest(placeTitle.value, placeLink.value)
@@ -113,6 +88,30 @@ const handleSetImage = (evt) => {
       console.log(err)
     })
 };
+//**************************EVENT LISTENERS*************************/
 
+//универсальный обработчик крестиков
+closeButtons.forEach((button) => {
+  // находим 1 раз ближайший к крестику попап
+  const popup = button.closest('.popup');
+  // устанавливаем обработчик закрытия на крестик
+  button.addEventListener('click', () => closePopup(popup));
+});
+
+//открытие профиля
+profileOpenButton?.addEventListener('click', function() {
+  nameInput.value = profileTitle.textContent;
+  jobInput.value = profileSubtitle.textContent;
+  openPopup(profilePopup);
+});
+
+//открытие попапа карточек
+placeOpenButton?.addEventListener('click', function() {
+  openPopup(placePopup);
+});
+
+//обработчик данных профиля
+profilePopup?.addEventListener('submit', handleSetUserInfo);
+
+//обработчик нового изображения
 placePopup.addEventListener('submit', handleSetImage);
-

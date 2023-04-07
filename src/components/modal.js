@@ -1,4 +1,4 @@
-import { popups, profileTitle, profileSubtitle, nameInput, jobInput, profilePopup, profileAvatar, user } from "./utils.js";
+import { popups, profileTitle, profileSubtitle, nameInput, jobInput, profilePopup, profileAvatar, x, user } from "./utils.js";
 import { getUserInfo } from "./api.js";
 
 function closeByEscape(evt) {
@@ -19,6 +19,7 @@ export function closePopup(item) {
   document.removeEventListener('keydown', closeByEscape);
 }
 
+//вешаем закрытие на все попапы сразу
 popups.forEach((popup) => {
   popup.addEventListener('mousedown', (evt) => {
       if (evt.target.classList.contains('popup_opened')) {
@@ -30,7 +31,7 @@ popups.forEach((popup) => {
   })
 });
 
-//редактирование имени и информации в профиле
+// функция редактирования имени и информации в профиле
 export function handleProfileFormSubmit (evt) {
   evt.preventDefault(); //отмена стандартной отправки формы
 
@@ -43,19 +44,17 @@ export function handleProfileFormSubmit (evt) {
   jobInput.value = "";
 
   closePopup(profilePopup);
-}
+};
 
 //отрисовываем инфу пользователя
-const userInfo = () => {
-  return getUserInfo()
-    .then(info => {
-  profileTitle.textContent = info.name;
-  profileSubtitle.textContent = info.about;
-  profileAvatar.src = info.avatar;
-  user.id = info._id;
-  // console.log(info._id);
-  // user.name = info.name
-  })}
+// export const userInfo = () => {
+//   return getUserInfo()
+//     .then(info => {
+//   profileTitle.textContent = info.name;
+//   profileSubtitle.textContent = info.about;
+//   profileAvatar.src = info.avatar;
+//   })
+// };
 
-userInfo();
-console.log(`${user.id}`);
+
+

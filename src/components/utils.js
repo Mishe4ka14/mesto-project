@@ -1,3 +1,4 @@
+import { enableValidation } from "./validate";
 //***************************ПЕРЕМЕННЫЕ**********************//
 export const content = document.querySelector('.page') //контент на странице
 export const container = content.querySelector('.card-container'); //контейнер с карточками
@@ -37,8 +38,19 @@ export const placeLink = content.querySelector('#place-link');
 // находим все крестики проекта по универсальному селектору
 export const closeButtons = document.querySelectorAll('.popup__close-button');
 
+enableValidation({
+  formSelector: '.popup__form',
+  inputSelector: '.popup__field',
+  submitButtonSelector: '.popup__save-button',
+  inactiveButtonClass: 'popup__save-button_inactive',
+  inputErrorClass: 'popup__field_error',
+  inputErrorType: 'popup__field_type_error',
+  errorClass: 'popup__field-error_active'
+});
+
 //находим форму профиля
 export const profileForm = content.querySelector('#popup-form');
+export const id = '54837afe3652a0dc55e19a1e';
 export const config = {
   baseURL: 'https://nomoreparties.co/v1/plus-cohort-22',
   headers: {
@@ -47,8 +59,4 @@ export const config = {
   }
 }
 
-export let user = {
-  id: '',
-  name: ''
-}
 

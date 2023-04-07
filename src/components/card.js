@@ -1,15 +1,15 @@
-import { cardTemplate, fullImage, fullImageTitle, imagePopup, likesNumber, trash, user } from "./utils.js";
+import { cardTemplate, fullImage, fullImageTitle, id, imagePopup } from "./utils.js";
 import { openPopup } from "./modal.js";
-import { checkLikes, getCards } from "./api.js";
-import { container } from './utils.js';
-//добавляем произвольные карточки
+import { checkLikes } from "./api.js";
+
+//функция на добавление новой карточки произвольные карточки
 export const addCard = (item, container) => {
-  // const item = createCard({name: placeTitle.value, link: placeLink.value});
   container?.prepend(item);
 };
+
 //функция на удаление мусорки
 const deleteTrash = (owner, trashBtn) => {
-  if(user._id !== owner){
+  if(id !== owner){
     trashBtn.remove()
   }
 }
@@ -39,31 +39,34 @@ export function createCard(item) {
   imageCard.alt = item.name;
   imageCardTitle.textContent = item.name;
 
-    //количество лайков
-     checkLikes(item._id)
-      .then(item => {
-        setLikes(item.likes, likesNumber)
-      })
-    //добавляем обработчик на кнопку удаления
-    cardElement.querySelector('.elements__trash-button').addEventListener('click', function() {
-      cardElement.remove();
-    });
+  // делаем запрос на количество лайков
+  checkLikes(item._id)
+    .then(item => {
+    //устанавливаем лайки
+    setLikes(item.likes, likesNumber)
+  });
 
-    //обработчик лайка
-    cardElement.querySelector('.elements__like-button').addEventListener('click',function (evt) {
-      evt.target.classList.toggle('elements__like-button_active');
-    });
+  //добавляем обработчик на кнопку удаления
+  cardElement.querySelector('.elements__trash-button').addEventListener('click', function() {
+    cardElement.remove();
+  });
 
-    //обработчик полномасштабного изображения
-      imageCard.addEventListener('click', function(evt) {
+  //обработчик лайка
+  cardElement.querySelector('.elements__like-button').addEventListener('click',function (evt) {
+    evt.target.classList.toggle('elements__like-button_active');
+  });
+
+  //обработчик полномасштабного изображения
+    imageCard.addEventListener('click', function(evt) {
       fullImage.src = evt.target.src;
       fullImage.alt = evt.target.alt;
       fullImageTitle.textContent = evt.target.alt;
-
       openPopup(imagePopup);
-    });
+  });
 
-  // deleteTrash(item.owner._id, trash);
+  //удаляем корзину у чужих карточек
+  deleteTrash(item.owner._id, trash);
+
   return cardElement
 }
 
