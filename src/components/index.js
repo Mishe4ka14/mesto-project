@@ -12,7 +12,8 @@ import {
   placeLink,
   closeButtons,
   addButton,
-  likesNumber
+  likesNumber,
+  cards
 } from './utils.js';
 
 import {openPopup, closePopup, handleProfileFormSubmit} from './modal.js';
@@ -92,6 +93,7 @@ const usersCard = () => {
   .then(cards => {
     cards.forEach(function(item) {
       const cardElement = createCard(item)
+      // console.log(item.owner._id);
       container.append(cardElement);
     })
   })
@@ -99,16 +101,18 @@ const usersCard = () => {
 usersCard();
 
 //фнкция добавления новой карточки
-placePopup.addEventListener('submit', function(evt){
+const handleSetImage = (evt) => {
   evt.preventDefault();
   createCardRequest(placeTitle.value, placeLink.value)
-  .then(res => {addCard(res.name, res.link)
-    closePopup(placePopup);
-    evt.target.reset();
-    addButton.classList.add('popup__save-button_inactive');
-    addButton.disabled = true;
-  })}
-)
+    .then((card) => {
+      addCard(createCard(card), cards);
+      closePopup(placePopup);
+      evt.target.reset();
+    })
+    .catch(err =>{
+      console.log(err)
+    })
+};
 
-
+placePopup.addEventListener('submit', handleSetImage);
 

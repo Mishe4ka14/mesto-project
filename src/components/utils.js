@@ -31,7 +31,6 @@ export const profileSubtitle = content.querySelector('.profile__subtitle');
 
 //создаем шаблон для новой карточки
 export const cardTemplate = document.querySelector('.template')?.content; //создаем переменную для шаблона
-// export const likesNumber = document.querySelector('.elements__number-likes');
 export const placeTitle = content.querySelector('#place-title'); //присваиваем параметрам функции название и ссылку из модального окна
 export const placeLink = content.querySelector('#place-link');
 
@@ -46,5 +45,10 @@ export const config = {
     authorization: '8c2802e0-9b5b-4767-b677-ed23ce66f120',
     'Content-Type': 'application/json'
   }
+}
+
+export let user = {
+  id: '',
+  name: ''
 }
 

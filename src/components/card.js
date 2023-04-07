@@ -1,13 +1,20 @@
-import { cardTemplate, fullImage, fullImageTitle, imagePopup, likesNumber } from "./utils.js";
+import { cardTemplate, fullImage, fullImageTitle, imagePopup, likesNumber, trash, user } from "./utils.js";
 import { openPopup } from "./modal.js";
 import { checkLikes, getCards } from "./api.js";
 import { container } from './utils.js';
 //добавляем произвольные карточки
-export function addCard(placeTitle, placeLink) {
-  const item = createCard({name: placeTitle.value, link: placeLink.value});
+export const addCard = (item, container) => {
+  // const item = createCard({name: placeTitle.value, link: placeLink.value});
   container?.prepend(item);
 };
+//функция на удаление мусорки
+const deleteTrash = (owner, trashBtn) => {
+  if(user._id !== owner){
+    trashBtn.remove()
+  }
+}
 
+//функция установка количества лайков
 const setLikes = (likes, number) => {
   if (likes.length > 0) {
     number.textContent = likes.length;
@@ -26,6 +33,7 @@ export function createCard(item) {
   const imageCard = cardElement.querySelector('.elements__photo');
   const imageCardTitle = cardElement.querySelector('.elements__photo-title');
   const likesNumber = cardElement.querySelector('.elements__number-likes');
+  const trash = cardElement.querySelector('.elements__trash-button')
   //записываем данные значение в переменные
   imageCard.src = item.link;
   imageCard.alt = item.name;
@@ -55,17 +63,9 @@ export function createCard(item) {
       openPopup(imagePopup);
     });
 
+  // deleteTrash(item.owner._id, trash);
   return cardElement
 }
-// const usersCard = () => {
-//   return getCards()
-//   .then(cards => {
-//     cards.forEach(function(item) {
-//       const cardElement = createCard(item)
-//       container.append(cardElement);
-//     })
-//   })
-// }
-// usersCard();
+
 
 
