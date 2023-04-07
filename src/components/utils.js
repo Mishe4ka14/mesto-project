@@ -31,7 +31,7 @@ export const profileSubtitle = content.querySelector('.profile__subtitle');
 
 //создаем шаблон для новой карточки
 export const cardTemplate = document.querySelector('.template')?.content; //создаем переменную для шаблона
-
+// export const likesNumber = document.querySelector('.elements__number-likes');
 export const placeTitle = content.querySelector('#place-title'); //присваиваем параметрам функции название и ссылку из модального окна
 export const placeLink = content.querySelector('#place-link');
 

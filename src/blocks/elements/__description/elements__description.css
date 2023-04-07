@@ -1,6 +1,9 @@
 .elements__description {
+  box-sizing: border-box;
   display: flex;
-  padding: 25px 15px 31px 21px;
+  padding: 25px 15px 28px 21px;
   background-color: white;
   border-radius: 0 0 10px 10px;
+  justify-content: space-between;
+  align-items: center;
 }

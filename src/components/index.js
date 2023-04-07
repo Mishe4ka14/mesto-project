@@ -12,6 +12,7 @@ import {
   placeLink,
   closeButtons,
   addButton,
+  likesNumber
 } from './utils.js';
 
 import {openPopup, closePopup, handleProfileFormSubmit} from './modal.js';
@@ -82,6 +83,7 @@ const handleSetUserInfo = (evt) => {
       closePopup(profilePopup)
     })
 }
+
 //обработчик данных профиля
 profilePopup?.addEventListener('submit', handleSetUserInfo);
 
@@ -99,10 +101,7 @@ usersCard();
 //фнкция добавления новой карточки
 placePopup.addEventListener('submit', function(evt){
   evt.preventDefault();
-  const x = placeTitle.value;
-  const y = placeLink.value;
-  console.log(x,y);
-  createCardRequest(x,y)
+  createCardRequest(placeTitle.value, placeLink.value)
   .then(res => {addCard(res.name, res.link)
     closePopup(placePopup);
     evt.target.reset();

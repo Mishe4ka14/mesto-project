@@ -64,6 +64,17 @@ export const setUserInfo = (nameInput, jobInput) => {
   }})
 }
 
+export const checkLikes = (cardId) => {
+  return request(`${config.baseURL}/cards/likes/${cardId}`,
+   {method: 'PUT',
+    headers: config.headers})
+  .then((res) => {
+    if(res.ok) {
+      return res.json();
+    } else{
+      return Promise.reject(`Ошибка: ${res.status}`);
+  }})
+}
 
 
 
