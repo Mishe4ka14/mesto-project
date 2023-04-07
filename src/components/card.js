@@ -1,8 +1,8 @@
 import { cardTemplate, fullImage, fullImageTitle, id, imagePopup } from "./utils.js";
 import { openPopup } from "./modal.js";
-import { checkLikes } from "./api.js";
+import { deleteCard, likeCard ,deleteLikeCard } from "./api.js";
 
-//функция на добавление новой карточки произвольные карточки
+//функция на добавление новой карточки
 export const addCard = (item, container) => {
   container?.prepend(item);
 };
@@ -25,6 +25,15 @@ const setLikes = (likes, number) => {
   }
 };
 
+//функция проверки моего лайка
+const isMylike = (likes, btn) => {
+  likes.forEach(element => {
+    if(element._id === id){
+      btn.classList.add('elements__like-button_active');
+    }
+  });
+}
+
 //функция создания новой карточки
 export function createCard(item) {
   const cardElement = cardTemplate.querySelector('.template__element').cloneNode(true); //создаем клон шаблона, в который будем подставлять значения
@@ -39,22 +48,31 @@ export function createCard(item) {
   imageCard.alt = item.name;
   imageCardTitle.textContent = item.name;
 
-  // делаем запрос на количество лайков
-  checkLikes(item._id)
-    .then(item => {
-    //устанавливаем лайки
-    setLikes(item.likes, likesNumber)
-  });
-
   //добавляем обработчик на кнопку удаления
   cardElement.querySelector('.elements__trash-button').addEventListener('click', function() {
-    cardElement.remove();
+    deleteCard(item._id)
+    .then(item => {
+      cardElement.remove();
+    })
   });
 
   //обработчик лайка
   cardElement.querySelector('.elements__like-button').addEventListener('click',function (evt) {
-    evt.target.classList.toggle('elements__like-button_active');
-  });
+      if(evt.target.classList.contains('elements__like-button_active')){
+        deleteLikeCard(item._id)
+        .then(item => {
+          isMylike(item.likes, evt.target)
+          setLikes(item.likes, likesNumber)
+        evt.target.classList.remove('elements__like-button_active');
+      })}
+      else{
+        likeCard(item._id)
+        .then(item => {
+          isMylike(item.likes, evt.target)
+        evt.target.classList.add('elements__like-button_active');
+        setLikes(item.likes, likesNumber)
+        })}
+    });
 
   //обработчик полномасштабного изображения
     imageCard.addEventListener('click', function(evt) {
@@ -64,6 +82,10 @@ export function createCard(item) {
       openPopup(imagePopup);
   });
 
+  //проверяем наличие установленного моего лайка
+  isMylike(item.likes, cardElement.querySelector('.elements__like-button'))
+  //проверяем наличие лайков
+  setLikes(item.likes, likesNumber)
   //удаляем корзину у чужих карточек
   deleteTrash(item.owner._id, trash);
 

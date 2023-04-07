@@ -47,13 +47,26 @@ export const setUserInfo = (nameInput, jobInput) => {
   })
 };
 
-//запрос количества лайков
-export const checkLikes = (cardId) => {
-  return request(`${config.baseURL}/cards/likes/${cardId}`,
-   {method: 'PUT',
+//запрос на удаление карточки
+export const deleteCard = (cardId) => {
+  return request(`${config.baseURL}/cards/${cardId}`, {
+    method: 'DELETE',
+    headers: config.headers })
+};
+
+//запрос на лайк карточки
+export const likeCard = (cardId) => {
+  return request(`${config.baseURL}/cards/likes/${cardId}`, {
+    method: 'PUT',
     headers: config.headers})
-}
-;
+};
+
+export const deleteLikeCard = (cardId) => {
+  return request(`${config.baseURL}/cards/likes/${cardId}`, {
+    method: 'DELETE',
+    headers: config.headers})
+};
+
 
 
 
