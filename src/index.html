@@ -15,7 +15,10 @@
 
       <main>
         <section class="profile">
-          <img class="profile__avatar" src="<%=require('./images/Avayar2.jpg')%>" alt="Аватарка">
+          <div class="profile__avatar-box">
+            <img class="profile__avatar" src="<%=require('./images/Avayar2.jpg')%>" alt="Аватарка">
+            <img class="profile__strelka" src="<%=require('./images/strelka.svg')%>" alt="Редактировать">
+        </div>
           <div class="profile__profile-info">
             <div class="profile__profile-title">
               <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -89,6 +92,18 @@
             <button id="closeImageButton" type="button" class="popup__close-button"  aria-label="Закрыть"></button>
             <img class="image__image-full" src="#" alt="">
             <h2 class="image__title" id="image__title"></h2>
+          </div>
+        </div>
+
+        <div id="new-avatar" class="popup">
+          <div class="new-avatar__container">
+            <button id="closeAvatarButton" type="button" class="popup__close-button"  aria-label="Закрыть"></button>
+            <form class="popup__form" name="avatar-form" action="#" id="avatar_form" novalidate>
+              <h2 class="popup__title">Обновить аватар</h2>
+              <input type="url" class="popup__field popup__field_avatar" id="avatar-link" name="avatar_link" placeholder="Ссылка на картинку" value="" required>
+              <span class="popup__field-error popup__field-error_padding avatar-link-error"></span>
+              <button id="addAvatar" type="submit" value="Сохранить" class="popup__save-button">Сохранить</button>
+          </form>
           </div>
         </div>
 

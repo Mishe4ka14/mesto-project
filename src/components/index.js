@@ -13,7 +13,9 @@ import {
   closeButtons,
   cards,
   profileAvatar,
-  container
+  container,
+  strelka,
+  AvatarPopup,
 } from './utils.js';
 
 import {openPopup, closePopup} from './modal.js';
@@ -37,6 +39,7 @@ import svanetia from '../images/svanetia.jpg';
 import trash_btn from '../images/trash-btn.svg';
 import vector from '../images/Vector.svg';
 import vector1 from '../images/Vector1.svg';
+import strelka1 from '../images/strelka.svg';
 import '../pages/index.css';
 
 //*****************************FUNCTION********************************* */
@@ -115,3 +118,21 @@ profilePopup?.addEventListener('submit', handleSetUserInfo);
 
 //обработчик нового изображения
 placePopup.addEventListener('submit', handleSetImage);
+
+//появление и удаление стрелки над аватаром
+profileAvatar.addEventListener('mouseover', function(){
+  strelka.classList.add('profile__strelka_active');
+});
+
+profileAvatar.addEventListener('mouseout', function(){
+  strelka.classList.remove('profile__strelka_active');
+});
+
+//открытие попапа редактирования аватара
+profileAvatar.addEventListener('mousedown', function() {
+  openPopup(AvatarPopup)
+});
+
+strelka.addEventListener('mousedown', function(){
+  openPopup(AvatarPopup)
+});

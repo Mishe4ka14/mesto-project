@@ -1,5 +1,4 @@
-import { popups, profileTitle, profileSubtitle, nameInput, jobInput, profilePopup, profileAvatar, x, user } from "./utils.js";
-import { getUserInfo } from "./api.js";
+import { popups, profileTitle, profileSubtitle, nameInput, jobInput, profilePopup, profileAvatar, strelka } from "./utils.js";
 
 function closeByEscape(evt) {
   if (evt.key === 'Escape') {
@@ -46,15 +45,7 @@ export function handleProfileFormSubmit (evt) {
   closePopup(profilePopup);
 };
 
-//отрисовываем инфу пользователя
-// export const userInfo = () => {
-//   return getUserInfo()
-//     .then(info => {
-//   profileTitle.textContent = info.name;
-//   profileSubtitle.textContent = info.about;
-//   profileAvatar.src = info.avatar;
-//   })
-// };
+
 
 
 

@@ -4,10 +4,9 @@
   width: 350px;
   justify-content: center;
   align-items: flex-start;
-  padding-left: 26px;
+  padding-left: 56px;
 
 }
-
 
 
 @media screen and (max-width: 769px) {

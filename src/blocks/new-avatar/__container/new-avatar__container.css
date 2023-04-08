@@ -1,13 +1,14 @@
-.place__container {
+.new-avatar__container {
   box-sizing: border-box;
   position: relative;
   display: flex;
   flex-direction: column;
   max-width: 430px;
   width: 100%;
-  height: 330px;
+  height: 272px;
   background-color: white;
   border-radius: 10px;
+  align-items: center;
 }
 
 @media screen and (max-width: 426px) {

@@ -37,7 +37,8 @@ export const placeLink = content.querySelector('#place-link');
 
 // находим все крестики проекта по универсальному селектору
 export const closeButtons = document.querySelectorAll('.popup__close-button');
-
+export const strelka = document.querySelector('.profile__strelka');
+export const AvatarPopup = document.querySelector('#new-avatar')
 enableValidation({
   formSelector: '.popup__form',
   inputSelector: '.popup__field',
