@@ -16,10 +16,12 @@ import {
   container,
   strelka,
   AvatarPopup,
+  addButton,
+  buttons
 } from './utils.js';
 
 import {openPopup, closePopup, handleProfileAvatarSubmit, renderLoading} from './modal.js';
-import { createCard, addCard } from './card.js';
+import { createCard, addCard, } from './card.js';
 import { createCardRequest, setUserInfo, getUserInfo, getCards } from './api.js';
 import add_button from '../images/Add_Button.svg';
 import add_button_big from '../images/Add_Button-big.svg';
@@ -76,7 +78,7 @@ const userInfo = () => {
 };
 userInfo();
 
-//отрисовываем карточки
+// //отрисовываем карточки
 const usersCard = () => {
   return getCards()
   .then(cards => {
@@ -96,6 +98,7 @@ const handleSetImage = (evt) => {
     .then((card) => {
       addCard(createCard(card), cards);
       closePopup(placePopup);
+      addButton.classList.add('popup__save-button_inactive');
       evt.target.reset();
     })
     .catch(err => {

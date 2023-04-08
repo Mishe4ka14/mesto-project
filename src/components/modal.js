@@ -1,5 +1,5 @@
 import { changeAvatar } from "./api.js";
-import { popups, profileTitle, profileSubtitle, nameInput, jobInput, profilePopup, profileAvatar, newAvatarLink, buttons, AvatarPopup,  } from "./utils.js";
+import { popups, profileTitle, profileSubtitle, nameInput, jobInput, profilePopup, profileAvatar, newAvatarLink, AvatarPopup, addAvatarBtn,  } from "./utils.js";
 
 function closeByEscape(evt) {
   if (evt.key === 'Escape') {
@@ -46,6 +46,7 @@ export function handleProfileFormSubmit (evt) {
   closePopup(profilePopup);
 };
 
+//функция смены аватарки
 export const handleProfileAvatarSubmit = (evt) => {
   evt.preventDefault();
   renderLoading(true, evt)
@@ -53,6 +54,7 @@ export const handleProfileAvatarSubmit = (evt) => {
   .then(link => {
     profileAvatar.src = link.avatar;
     closePopup(AvatarPopup)
+    addAvatarBtn.classList.add('popup__save-button_inactive');
     evt.target.reset();
   })
   .catch(err => {
@@ -63,6 +65,7 @@ export const handleProfileAvatarSubmit = (evt) => {
   })
 }
 
+//функция отрисовки загрузки
 export function renderLoading(isLoading, evt){
   const btn = evt.target.querySelector('.popup__save-button')
   if(isLoading){

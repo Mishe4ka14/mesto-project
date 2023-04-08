@@ -42,16 +42,7 @@ export const AvatarPopup = document.querySelector('#new-avatar');
 export const newAvatarLink = document.querySelector('.popup__field_avatar');
 export const changeAvatarButton = document.querySelector('.save_avatar');
 export const buttons = document.querySelectorAll('.popup__save-button');
-enableValidation({
-  formSelector: '.popup__form',
-  inputSelector: '.popup__field',
-  submitButtonSelector: '.popup__save-button',
-  inactiveButtonClass: 'popup__save-button_inactive',
-  inputErrorClass: 'popup__field_error',
-  inputErrorType: 'popup__field_type_error',
-  errorClass: 'popup__field-error_active'
-});
-
+export const addAvatarBtn = document.querySelector('#addAvatar');
 //находим форму профиля
 export const profileForm = content.querySelector('#popup-form');
 export const id = '54837afe3652a0dc55e19a1e';
@@ -63,4 +54,13 @@ export const config = {
   }
 }
 
+enableValidation({
+  formSelector: '.popup__form',
+  inputSelector: '.popup__field',
+  submitButtonSelector: '.popup__save-button',
+  inactiveButtonClass: 'popup__save-button_inactive',
+  inputErrorClass: 'popup__field_error',
+  inputErrorType: 'popup__field_type_error',
+  errorClass: 'popup__field-error_active'
+});
 

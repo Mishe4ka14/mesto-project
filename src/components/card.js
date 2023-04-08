@@ -61,28 +61,28 @@ export function createCard(item) {
 
   //обработчик лайка
   cardElement.querySelector('.elements__like-button').addEventListener('click',function (evt) {
-      if(evt.target.classList.contains('elements__like-button_active')){
-        deleteLikeCard(item._id)
-        .then(item => {
-          isMylike(item.likes, evt.target)
-          setLikes(item.likes, likesNumber)
+    if(evt.target.classList.contains('elements__like-button_active')){
+      deleteLikeCard(item._id)
+      .then(item => {
+        isMylike(item.likes, evt.target)
+        setLikes(item.likes, likesNumber)
         evt.target.classList.remove('elements__like-button_active');
       })}
-      else{
-        likeCard(item._id)
-        .then(item => {
-          isMylike(item.likes, evt.target)
+    else{
+      likeCard(item._id)
+      .then(item => {
+        isMylike(item.likes, evt.target)
         evt.target.classList.add('elements__like-button_active');
         setLikes(item.likes, likesNumber)
-        })}
-    });
+      })}
+  });
 
   //обработчик полномасштабного изображения
-    imageCard.addEventListener('click', function(evt) {
-      fullImage.src = evt.target.src;
-      fullImage.alt = evt.target.alt;
-      fullImageTitle.textContent = evt.target.alt;
-      openPopup(imagePopup);
+  imageCard.addEventListener('click', function(evt) {
+    fullImage.src = evt.target.src;
+    fullImage.alt = evt.target.alt;
+    fullImageTitle.textContent = evt.target.alt;
+    openPopup(imagePopup);
   });
 
   //проверяем наличие установленного моего лайка
