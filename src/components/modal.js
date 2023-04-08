@@ -1,5 +1,5 @@
 import { changeAvatar } from "./api.js";
-import { popups, profileTitle, profileSubtitle, nameInput, jobInput, profilePopup, profileAvatar, newAvatarLink, AvatarPopup, addAvatarBtn,  } from "./utils.js";
+import { popups, profileTitle, profileSubtitle, nameInput, jobInput, profilePopup, profileAvatar, newAvatarLink, avatarPopup, addAvatarBtn,  } from "./utils.js";
 
 function closeByEscape(evt) {
   if (evt.key === 'Escape') {
@@ -31,21 +31,6 @@ popups.forEach((popup) => {
   })
 });
 
-// функция редактирования имени и информации в профиле
-export function handleProfileFormSubmit (evt) {
-  evt.preventDefault(); //отмена стандартной отправки формы
-
-  //Вставляем новые значения с помощью textContent
-  profileTitle.textContent = nameInput.value;
-  profileSubtitle.textContent = jobInput.value;
-
-  //сбрасываем форму плохим способом!
-  nameInput.value = "";
-  jobInput.value = "";
-
-  closePopup(profilePopup);
-};
-
 //функция смены аватарки
 export const handleProfileAvatarSubmit = (evt) => {
   evt.preventDefault();
@@ -53,8 +38,9 @@ export const handleProfileAvatarSubmit = (evt) => {
   changeAvatar(newAvatarLink.value)
   .then(link => {
     profileAvatar.src = link.avatar;
-    closePopup(AvatarPopup)
+    closePopup(avatarPopup)
     addAvatarBtn.classList.add('popup__save-button_inactive');
+    addAvatarBtn.disabled = true;
     evt.target.reset();
   })
   .catch(err => {

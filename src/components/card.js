@@ -9,7 +9,7 @@ export const addCard = (item, container) => {
 
 //функция на удаление мусорки
 const deleteTrash = (owner, trashBtn) => {
-  if(id !== owner){
+  if(id.id !== owner){
     trashBtn.remove()
   }
 }
@@ -28,7 +28,7 @@ const setLikes = (likes, number) => {
 //функция проверки моего лайка
 const isMylike = (likes, btn) => {
   likes.forEach(element => {
-    if(element._id === id){
+    if(element._id === id.id){
       btn.classList.add('elements__like-button_active');
     }
   });
@@ -72,7 +72,6 @@ export function createCard(item) {
       likeCard(item._id)
       .then(item => {
         isMylike(item.likes, evt.target)
-        evt.target.classList.add('elements__like-button_active');
         setLikes(item.likes, likesNumber)
       })}
   });

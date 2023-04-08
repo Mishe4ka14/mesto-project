@@ -38,14 +38,16 @@ export const placeLink = content.querySelector('#place-link');
 // находим все крестики проекта по универсальному селектору
 export const closeButtons = document.querySelectorAll('.popup__close-button');
 export const strelka = document.querySelector('.profile__strelka');
-export const AvatarPopup = document.querySelector('#new-avatar');
+export const avatarPopup = document.querySelector('#new-avatar');
 export const newAvatarLink = document.querySelector('.popup__field_avatar');
 export const changeAvatarButton = document.querySelector('.save_avatar');
 export const buttons = document.querySelectorAll('.popup__save-button');
 export const addAvatarBtn = document.querySelector('#addAvatar');
 //находим форму профиля
-export const profileForm = content.querySelector('#popup-form');
-export const id = '54837afe3652a0dc55e19a1e';
+export const profileForm = document.forms.popup_form;
+export const placeForm = document.forms.place_form;
+export const avatarForm = document.forms.avatar_form;
+export const id = [];
 export const config = {
   baseURL: 'https://nomoreparties.co/v1/plus-cohort-22',
   headers: {

@@ -15,9 +15,12 @@ import {
   profileAvatar,
   container,
   strelka,
-  AvatarPopup,
+  avatarPopup,
   addButton,
-  buttons
+  profileForm,
+  placeForm,
+  avatarForm,
+  id,
 } from './utils.js';
 
 import {openPopup, closePopup, handleProfileAvatarSubmit, renderLoading} from './modal.js';
@@ -64,31 +67,26 @@ const handleSetUserInfo = (evt) => {
     })
   };
 
-//отрисовываем данные профиля
-const userInfo = () => {
-  return getUserInfo()
-  .then(info => {
+//общая функция отрисовки страницы
+Promise.all([getUserInfo(), getCards()])
+  .then(([info]) => {
     profileTitle.textContent = info.name;
     profileSubtitle.textContent = info.about;
     profileAvatar.src = info.avatar;
+    id.id = info._id;
   })
-  .catch(err => {
-    console.log(err);
-  })
-};
-userInfo();
-
-// //отрисовываем карточки
-const usersCard = () => {
-  return getCards()
-  .then(cards => {
-    cards.forEach(function(item) {
-      const cardElement = createCard(item)
-      container.append(cardElement);
+  .then(() => {
+    getCards()
+    .then(cards => {
+      cards.forEach(function(item) {
+        const cardElement = createCard(item)
+        container.append(cardElement);
+      })
     })
   })
-}
-usersCard();
+    .catch(err => {
+    console.log(err);
+  })
 
 //функция добавления новой карточки
 const handleSetImage = (evt) => {
@@ -99,6 +97,7 @@ const handleSetImage = (evt) => {
       addCard(createCard(card), cards);
       closePopup(placePopup);
       addButton.classList.add('popup__save-button_inactive');
+      addButton.disabled = true;
       evt.target.reset();
     })
     .catch(err => {
@@ -131,10 +130,10 @@ placeOpenButton?.addEventListener('click', function() {
 });
 
 //обработчик данных профиля
-profilePopup?.addEventListener('submit', handleSetUserInfo);
+profileForm?.addEventListener('submit', handleSetUserInfo);
 
 //обработчик нового изображения
-placePopup.addEventListener('submit', handleSetImage);
+placeForm.addEventListener('submit', handleSetImage);
 
 //появление и удаление стрелки над аватаром
 profileAvatar.addEventListener('mouseover', function(){
@@ -147,12 +146,12 @@ profileAvatar.addEventListener('mouseout', function(){
 
 //открытие попапа редактирования аватара
 profileAvatar.addEventListener('mousedown', function() {
-  openPopup(AvatarPopup)
+  openPopup(avatarPopup)
 });
 
 strelka.addEventListener('mousedown', function(){
-  openPopup(AvatarPopup)
+  openPopup(avatarPopup)
 });
 
 //редактирование аватара
-AvatarPopup.addEventListener('submit', handleProfileAvatarSubmit)
+avatarForm.addEventListener('submit', handleProfileAvatarSubmit)
