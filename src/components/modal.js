@@ -1,5 +1,5 @@
 import { changeAvatar } from "./api.js";
-import { popups, profileTitle, profileSubtitle, nameInput, jobInput, profilePopup, profileAvatar, newAvatarLink, changeAvatarButton, AvatarPopup } from "./utils.js";
+import { popups, profileTitle, profileSubtitle, nameInput, jobInput, profilePopup, profileAvatar, newAvatarLink, buttons, AvatarPopup,  } from "./utils.js";
 
 function closeByEscape(evt) {
   if (evt.key === 'Escape') {
@@ -48,17 +48,27 @@ export function handleProfileFormSubmit (evt) {
 
 export const handleProfileAvatarSubmit = (evt) => {
   evt.preventDefault();
-
+  renderLoading(true, evt)
   changeAvatar(newAvatarLink.value)
   .then(link => {
     profileAvatar.src = link.avatar;
     closePopup(AvatarPopup)
+    evt.target.reset();
   })
   .catch(err => {
     console.log(err);
   })
+  .finally(()=> {
+    renderLoading(false, evt)
+  })
 }
 
-AvatarPopup.addEventListener('submit', handleProfileAvatarSubmit)
-
-
+export function renderLoading(isLoading, evt){
+  const btn = evt.target.querySelector('.popup__save-button')
+  if(isLoading){
+    btn.textContent = btn.dataset.value1
+  }
+  else{
+    btn.textContent = btn.value
+  }
+}

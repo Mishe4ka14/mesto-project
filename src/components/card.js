@@ -54,6 +54,9 @@ export function createCard(item) {
     .then(item => {
       cardElement.remove();
     })
+    .catch(err => {
+      console.log(err)
+    })
   });
 
   //обработчик лайка

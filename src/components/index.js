@@ -18,7 +18,7 @@ import {
   AvatarPopup,
 } from './utils.js';
 
-import {openPopup, closePopup} from './modal.js';
+import {openPopup, closePopup, handleProfileAvatarSubmit, renderLoading} from './modal.js';
 import { createCard, addCard } from './card.js';
 import { createCardRequest, setUserInfo, getUserInfo, getCards } from './api.js';
 import add_button from '../images/Add_Button.svg';
@@ -47,11 +47,18 @@ import '../pages/index.css';
 //функция изменения данных профиля
 const handleSetUserInfo = (evt) => {
   evt.preventDefault();
+  renderLoading(true, evt)
   setUserInfo(nameInput.value, jobInput.value)
     .then((info) => {
       profileTitle.textContent = info.name;
       profileSubtitle.textContent = info.about;
       closePopup(profilePopup)
+    })
+    .catch(err => {
+      console.log(err);
+    })
+    .finally(()=> {
+      renderLoading(false, evt)
     })
   };
 
@@ -62,6 +69,9 @@ const userInfo = () => {
     profileTitle.textContent = info.name;
     profileSubtitle.textContent = info.about;
     profileAvatar.src = info.avatar;
+  })
+  .catch(err => {
+    console.log(err);
   })
 };
 userInfo();
@@ -81,14 +91,18 @@ usersCard();
 //функция добавления новой карточки
 const handleSetImage = (evt) => {
   evt.preventDefault();
+  renderLoading(true, evt)
   createCardRequest(placeTitle.value, placeLink.value)
     .then((card) => {
       addCard(createCard(card), cards);
       closePopup(placePopup);
       evt.target.reset();
     })
-    .catch(err =>{
-      console.log(err)
+    .catch(err => {
+      console.log(err);
+    })
+    .finally(()=> {
+      renderLoading(false, evt)
     })
 };
 //**************************EVENT LISTENERS*************************/
@@ -136,3 +150,6 @@ profileAvatar.addEventListener('mousedown', function() {
 strelka.addEventListener('mousedown', function(){
   openPopup(AvatarPopup)
 });
+
+//редактирование аватара
+AvatarPopup.addEventListener('submit', handleProfileAvatarSubmit)

@@ -41,7 +41,7 @@ export const strelka = document.querySelector('.profile__strelka');
 export const AvatarPopup = document.querySelector('#new-avatar');
 export const newAvatarLink = document.querySelector('.popup__field_avatar');
 export const changeAvatarButton = document.querySelector('.save_avatar');
-
+export const buttons = document.querySelectorAll('.popup__save-button');
 enableValidation({
   formSelector: '.popup__form',
   inputSelector: '.popup__field',
