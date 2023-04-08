@@ -1,4 +1,5 @@
-import { popups, profileTitle, profileSubtitle, nameInput, jobInput, profilePopup, profileAvatar, strelka } from "./utils.js";
+import { changeAvatar } from "./api.js";
+import { popups, profileTitle, profileSubtitle, nameInput, jobInput, profilePopup, profileAvatar, newAvatarLink, changeAvatarButton, AvatarPopup } from "./utils.js";
 
 function closeByEscape(evt) {
   if (evt.key === 'Escape') {
@@ -45,7 +46,19 @@ export function handleProfileFormSubmit (evt) {
   closePopup(profilePopup);
 };
 
+export const handleProfileAvatarSubmit = (evt) => {
+  evt.preventDefault();
 
+  changeAvatar(newAvatarLink.value)
+  .then(link => {
+    profileAvatar.src = link.avatar;
+    closePopup(AvatarPopup)
+  })
+  .catch(err => {
+    console.log(err);
+  })
+}
 
+AvatarPopup.addEventListener('submit', handleProfileAvatarSubmit)
 
 

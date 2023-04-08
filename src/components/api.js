@@ -61,12 +61,23 @@ export const likeCard = (cardId) => {
     headers: config.headers})
 };
 
+//запрос на удаление лайка
 export const deleteLikeCard = (cardId) => {
   return request(`${config.baseURL}/cards/likes/${cardId}`, {
     method: 'DELETE',
     headers: config.headers})
 };
 
+//запрос на редактирование аватара
+export const changeAvatar = (avaLink) => {
+  return request(`${config.baseURL}/users/me/avatar`, {
+    method: 'PATCH',
+    headers: config.headers,
+    body:JSON.stringify({
+      avatar: avaLink
+    })
+  })
+};
 
 
 
