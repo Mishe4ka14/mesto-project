@@ -69,21 +69,16 @@ const handleSetUserInfo = (evt) => {
 
 //общая функция отрисовки страницы
 Promise.all([getUserInfo(), getCards()])
-  .then(([info]) => {
+  .then(([info, cards]) => {
     profileTitle.textContent = info.name;
     profileSubtitle.textContent = info.about;
     profileAvatar.src = info.avatar;
     id.id = info._id;
-  })
-  .then(() => {
-    getCards()
-    .then(cards => {
-      cards.forEach(function(item) {
-        const cardElement = createCard(item)
-        container.append(cardElement);
+    cards.forEach(function(item) {
+    const cardElement = createCard(item)
+    container.append(cardElement);
       })
     })
-  })
     .catch(err => {
     console.log(err);
   })
